@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Residenciais — Aldeias do Cerrado</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/2.47.0/iconfont/tabler-icons.min.css">
+</head>
+<body>
+
+<!-- TOPBAR -->
+<header class="topbar">
+  <div class="wrap">
+    <a href="index.html" class="brand"><span class="dot"><i class="ti ti-leaf"></i></span> <img src="img/Logo-Aldeis-do-cerrado-1024x239.png" alt="Aldeias do Cerrado"></a>
+    <nav class="main-nav">
+      <a href="residenciais.html" class="active">Residenciais</a>
+      <a href="index.html#obras">Obras</a>
+      <a href="index.html#tour">Localização</a>
+      <a href="documentos.html">Documentos</a>
+      <a href="index.html#contato">Contato</a>
+    </nav>
+    <a href="documentos.html#area-cliente" class="btn btn-gold btn-sm">Área do cliente</a>
+  </div>
+</header>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="index.html">Início</a> / Residenciais</div>
+    <span class="eyebrow on-dark">os residenciais</span>
+    <h1>Dois condomínios, uma filosofia de vida</h1>
+    <p>Cada residencial foi concebido com identidade própria, integrando a flora típica do cerrado à arquitetura contemporânea assinada por Paulo Zimbres.</p>
+  </div>
+</section>
+
+<!-- JACARANDÁS -->
+<section class="res-detail bg-cream" id="jacarandas">
+  <div class="wrap">
+    <div class="res-layout">
+      <div class="res-carousel" id="carousel-jac">
+        <div class="res-carousel-track">
+          <div class="res-carousel-slide"><img src="img/jacarandas/DJI_20260512092800_0001_V_ponto+1.jpeg" alt="Jacarandás" loading="lazy"></div>
+          <div class="res-carousel-slide"><img src="img/jacarandas/DJI_20260512092911_0003_V_ponto+2.jpeg" alt="Jacarandás" loading="lazy"></div>
+          <div class="res-carousel-slide"><img src="img/jacarandas/DJI_20260512093111_0005_V.jpeg" alt="Jacarandás" loading="lazy"></div>
+          <div class="res-carousel-slide"><img src="img/jacarandas/DJI_20260619172249_0017_V_JACARANDAS+LAZER.jpeg" alt="Jacarandás — Área de lazer" loading="lazy"></div>
+        </div>
+        <button class="res-carousel-prev" onclick="carouselNav('jac',-1)" aria-label="Anterior"><i class="ti ti-chevron-left"></i></button>
+        <button class="res-carousel-next" onclick="carouselNav('jac', 1)" aria-label="Próximo"><i class="ti ti-chevron-right"></i></button>
+        <div class="res-carousel-dots">
+          <button class="res-dot active" onclick="carouselGo('jac',0)"></button>
+          <button class="res-dot" onclick="carouselGo('jac',1)"></button>
+          <button class="res-dot" onclick="carouselGo('jac',2)"></button>
+          <button class="res-dot" onclick="carouselGo('jac',3)"></button>
+        </div>
+      </div>
+      <div>
+        <span class="eyebrow">residencial i</span>
+        <h2 style="font-size:30px;">Jacarandás</h2>
+        <p class="lede" style="margin-top:12px;">Harmonia perfeita entre arquitetura contemporânea e preservação ambiental. Lotes amplos com infraestrutura completa de lazer e segurança, pensados para famílias que valorizam tranquilidade sem abrir mão da sofisticação.</p>
+
+        <div class="res-meta">
+          <div class="item"><p class="v">357 lotes</p><p class="l">total de lotes</p></div>
+          <div class="item"><p class="v">300 m²</p><p class="l">área média do lote</p></div>
+        </div>
+
+        <p style="font-size:12.5px; color:var(--texto-medio); font-weight:600; margin-bottom:8px; text-transform:uppercase; letter-spacing:1px;">Diferenciais</p>
+        <div class="amenities">
+          <span class="amenity-pill"><i class="ti ti-trees" style="font-size:13px; margin-right:4px;"></i>Área de lazer</span>
+          <span class="amenity-pill"><i class="ti ti-shield" style="font-size:13px; margin-right:4px;"></i>Segurança 24h</span>
+          <span class="amenity-pill"><i class="ti ti-plant" style="font-size:13px; margin-right:4px;"></i>Áreas verdes</span>
+          <span class="amenity-pill"><i class="ti ti-pool" style="font-size:13px; margin-right:4px;"></i>Clube privativo</span>
+          <span class="amenity-pill"><i class="ti ti-bolt" style="font-size:13px; margin-right:4px;"></i>Fiação subterrânea</span>
+        </div>
+
+        <div class="cta-row" style="margin-top:28px; display:flex; gap:12px;">
+          <a href="documentos.html" class="btn btn-green">Ver implantação e plantas</a>
+          <a href="index.html#contato" class="btn btn-outline-dark">Falar com a equipe</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUCUPIRAS -->
+<section class="res-detail bg-cream" id="sucupiras">
+  <div class="wrap">
+    <div class="res-layout" style="direction: rtl;">
+      <div style="direction: ltr;">
+        <span class="eyebrow">residencial ii</span>
+        <h2 style="font-size:30px;">Sucupiras</h2>
+        <p class="lede" style="margin-top:12px;">Privacidade e exclusividade em um cenário deslumbrante. Projetado para quem busca tranquilidade sem abrir mão da conveniência urbana, com trilhas ecológicas integradas ao traçado urbanístico.</p>
+
+        <div class="res-meta">
+          <div class="item"><p class="v">254 lotes</p><p class="l">total de lotes</p></div>
+          <div class="item"><p class="v">350 m²</p><p class="l">área média do lote</p></div>
+        </div>
+
+        <p style="font-size:12.5px; color:var(--texto-medio); font-weight:600; margin-bottom:8px; text-transform:uppercase; letter-spacing:1px;">Diferenciais</p>
+        <div class="amenities">
+          <span class="amenity-pill"><i class="ti ti-walk" style="font-size:13px; margin-right:4px;"></i>Trilhas ecológicas</span>
+          <span class="amenity-pill"><i class="ti ti-tools-kitchen-2" style="font-size:13px; margin-right:4px;"></i>Espaço gourmet</span>
+          <span class="amenity-pill"><i class="ti ti-ball-tennis" style="font-size:13px; margin-right:4px;"></i>Quadras poliesportivas</span>
+          <span class="amenity-pill"><i class="ti ti-lock" style="font-size:13px; margin-right:4px;"></i>Portaria monitorada</span>
+          <span class="amenity-pill"><i class="ti ti-droplet" style="font-size:13px; margin-right:4px;"></i>Lago artificial</span>
+        </div>
+
+        <div class="cta-row" style="margin-top:28px; display:flex; gap:12px;">
+          <a href="documentos.html" class="btn btn-green">Ver implantação e plantas</a>
+          <a href="index.html#contato" class="btn btn-outline-dark">Falar com a equipe</a>
+        </div>
+      </div>
+      <div class="res-carousel" id="carousel-suc" style="direction: ltr;">
+        <div class="res-carousel-track">
+          <div class="res-carousel-slide"><img src="img/sucupiras/DJI_20260622154240_0001_V_QD+4+-+SUCUPIRA-01.jpeg" alt="Sucupiras" loading="lazy"></div>
+          <div class="res-carousel-slide"><img src="img/sucupiras/DJI_20260622154250_0003_V.jpeg" alt="Sucupiras" loading="lazy"></div>
+          <div class="res-carousel-slide"><img src="img/sucupiras/DJI_20260622154342_0004_V_QD+4+-+SUCUPIRA-02.jpeg" alt="Sucupiras" loading="lazy"></div>
+          <div class="res-carousel-slide"><img src="img/sucupiras/DJI_20260622154349_0005_V.jpeg" alt="Sucupiras" loading="lazy"></div>
+        </div>
+        <button class="res-carousel-prev" onclick="carouselNav('suc',-1)" aria-label="Anterior"><i class="ti ti-chevron-left"></i></button>
+        <button class="res-carousel-next" onclick="carouselNav('suc', 1)" aria-label="Próximo"><i class="ti ti-chevron-right"></i></button>
+        <div class="res-carousel-dots">
+          <button class="res-dot active" onclick="carouselGo('suc',0)"></button>
+          <button class="res-dot" onclick="carouselGo('suc',1)"></button>
+          <button class="res-dot" onclick="carouselGo('suc',2)"></button>
+          <button class="res-dot" onclick="carouselGo('suc',3)"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARATIVO RÁPIDO -->
+<section class="section-numeros">
+  <div class="wrap">
+    <div class="numeros-header">
+      <span class="eyebrow on-dark">visão geral</span>
+      <h2 class="section-title numeros-title">O bairro em números</h2>
+    </div>
+    <div class="numeros-grid">
+      <div class="numero-item">
+        <i class="ti ti-building-estate numero-icon"></i>
+        <p class="num">611</p>
+        <p class="lbl">lotes no total</p>
+      </div>
+      <div class="numero-sep"></div>
+      <div class="numero-item">
+        <i class="ti ti-map-pin numero-icon"></i>
+        <p class="num">8 km</p>
+        <p class="lbl">da Ponte JK</p>
+      </div>
+      <div class="numero-sep"></div>
+      <div class="numero-item">
+        <i class="ti ti-trees numero-icon"></i>
+        <p class="num">300 ha</p>
+        <p class="lbl">área total do complexo</p>
+      </div>
+      <div class="numero-sep"></div>
+      <div class="numero-item">
+        <i class="ti ti-leaf numero-icon"></i>
+        <p class="num">30%</p>
+        <p class="lbl">áreas verdes preservadas</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="brand"><span class="dot"><i class="ti ti-leaf"></i></span> <img src="img/Logo-Aldeis-do-cerrado-1024x239.png" alt="Aldeias do Cerrado"></a>
+        <p class="desc">Um empreendimento Terracap — empresa pública do Distrito Federal, com mais de 50 anos de história no desenvolvimento urbano da capital.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Residenciais</h5>
+        <ul>
+          <li><a href="residenciais.html#jacarandas">Jacarandás</a></li>
+          <li><a href="residenciais.html#sucupiras">Sucupiras</a></li>
+          <li><a href="index.html#tour">Mapa do complexo</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Informações</h5>
+        <ul>
+          <li><a href="index.html#obras">Andamento das obras</a></li>
+          <li><a href="documentos.html">Documentos e editais</a></li>
+          <li><a href="documentos.html#area-cliente">Área do cliente</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Aldeias do Cerrado · Todos os direitos reservados</span>
+      <span>TERRACAP · DF</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const carousels = {};
+
+function carouselGo(id, i) {
+  const c = carousels[id];
+  c.idx = i;
+  document.querySelector('#carousel-' + id + ' .res-carousel-track').style.transform = 'translateX(-' + (i * 100) + '%)';
+  document.querySelectorAll('#carousel-' + id + ' .res-dot').forEach((d, j) => d.classList.toggle('active', j === i));
+}
+
+function carouselNav(id, dir) {
+  const c = carousels[id];
+  clearInterval(c.timer);
+  carouselGo(id, (c.idx + dir + c.count) % c.count);
+  c.timer = setInterval(() => carouselGo(id, (c.idx + 1) % c.count), 4000);
+}
+
+function carouselInit(id, count) {
+  carousels[id] = { idx: 0, count, timer: null };
+  carousels[id].timer = setInterval(() => carouselGo(id, (carousels[id].idx + 1) % count), 4000);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  carouselInit('jac', 4);
+  carouselInit('suc', 4);
+});
+</script>
+</body>
+</html>
