@@ -9,21 +9,40 @@
 </head>
 <body>
 
+<a class="skip-link" href="#conteudo-principal">Pular para o conteúdo principal</a>
+
 <!-- TOPBAR -->
-<header class="topbar">
+<header class="topbar" role="banner">
   <div class="wrap">
-    <a href="index.html" class="brand"><span class="dot"><i class="ti ti-leaf"></i></span> <img src="img/Logo-Aldeis-do-cerrado-1024x239.png" alt="Aldeias do Cerrado"></a>
-    <nav class="main-nav">
+    <a href="index.html" class="brand" aria-label="Aldeias do Cerrado — página inicial">
+      <span class="dot" aria-hidden="true"><i class="ti ti-leaf"></i></span>
+      <img src="img/Logo-Aldeis-do-cerrado-1024x239.png" alt="Aldeias do Cerrado">
+    </a>
+    <nav class="main-nav" id="main-nav" aria-label="Menu principal">
       <a href="residenciais.html">Residenciais</a>
       <a href="index.html#obras">Obras</a>
       <a href="index.html#tour">Localização</a>
-      <a href="documentos.html" class="active">Documentos</a>
+      <a href="documentos.html" aria-current="page">Documentos</a>
       <a href="index.html#contato">Contato</a>
+      <a href="#area-cliente" class="btn btn-gold nav-cta-mobile">Área do cliente</a>
     </nav>
-    <a href="#area-cliente" class="btn btn-gold btn-sm">Área do cliente</a>
+    <a href="#area-cliente" class="btn btn-gold btn-sm" id="topbar-cta">Área do cliente</a>
+    <button
+      class="nav-toggle"
+      id="nav-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="main-nav"
+      aria-label="Abrir menu de navegação"
+    >
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+    </button>
   </div>
 </header>
 
+<main id="conteudo-principal">
 <!-- PAGE HERO -->
 <section class="page-hero">
   <div class="wrap">
@@ -155,14 +174,49 @@
     </div>
   </div>
 </footer>
+</main>
 
 <script>
 document.querySelectorAll('.tab-btn').forEach(function(btn) {
   btn.addEventListener('click', function() {
-    document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+    document.querySelectorAll('.tab-btn').forEach(function(b) {
+      b.classList.remove('active');
+      b.setAttribute('aria-selected', 'false');
+    });
     document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
     btn.classList.add('active');
+    btn.setAttribute('aria-selected', 'true');
     document.getElementById(btn.dataset.tab).classList.add('active');
+  });
+});
+
+// Menu hamburger
+document.addEventListener('DOMContentLoaded', function() {
+  var navToggle = document.getElementById('nav-toggle');
+  var mainNav   = document.getElementById('main-nav');
+  if (!navToggle || !mainNav) return;
+
+  function openNav() {
+    mainNav.classList.add('open');
+    navToggle.setAttribute('aria-expanded', 'true');
+    navToggle.setAttribute('aria-label', 'Fechar menu de navegação');
+    document.body.style.overflow = 'hidden';
+    var first = mainNav.querySelector('a, button');
+    if (first) first.focus();
+  }
+  function closeNav() {
+    mainNav.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+    navToggle.setAttribute('aria-label', 'Abrir menu de navegação');
+    document.body.style.overflow = '';
+  }
+
+  navToggle.addEventListener('click', function() {
+    mainNav.classList.contains('open') ? closeNav() : openNav();
+  });
+  mainNav.querySelectorAll('a').forEach(function(l) { l.addEventListener('click', closeNav); });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && mainNav.classList.contains('open')) { closeNav(); navToggle.focus(); }
   });
 });
 </script>

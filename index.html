@@ -9,23 +9,43 @@
 </head>
 <body>
 
+<a class="skip-link" href="#conteudo-principal">Pular para o conteúdo principal</a>
+
 <!-- TOPBAR -->
-<header class="topbar">
+<header class="topbar" role="banner">
   <div class="wrap">
-    <a href="index.html" class="brand"><span class="dot"><i class="ti ti-leaf"></i></span> <img src="img/Logo-Aldeis-do-cerrado-1024x239.png" alt=""></b></a>
-    <nav class="main-nav">
+    <a href="index.html" class="brand" aria-label="Aldeias do Cerrado — página inicial">
+      <span class="dot" aria-hidden="true"><i class="ti ti-leaf"></i></span>
+      <img src="img/Logo-Aldeis-do-cerrado-1024x239.png" alt="Aldeias do Cerrado">
+    </a>
+    <nav class="main-nav" id="main-nav" aria-label="Menu principal">
       <a href="residenciais.html">Residenciais</a>
       <a href="index.html#obras">Obras</a>
       <a href="index.html#tour">Localização</a>
       <a href="index.html#comocomprar">Como comprar</a>
       <a href="documentos.html">Documentos</a>
       <a href="index.html#contato">Contato</a>
+      <!-- CTA visível apenas no menu mobile -->
+      <a href="documentos.html#area-cliente" class="btn btn-gold nav-cta-mobile">Área do cliente</a>
     </nav>
-    <a href="documentos.html#area-cliente" class="btn btn-gold btn-sm">Área do cliente</a>
+    <a href="documentos.html#area-cliente" class="btn btn-gold btn-sm" id="topbar-cta">Área do cliente</a>
+    <button
+      class="nav-toggle"
+      id="nav-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="main-nav"
+      aria-label="Abrir menu de navegação"
+    >
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+    </button>
   </div>
 </header>
 
 <!-- HERO -->
+<main id="conteudo-principal">
 <section class="hero">
   <img class="hero-video" src="img/Aldeias-do-Cerrado-1.webp" alt="Aldeias do Cerrado">
   <div class="hero-overlay"></div>
@@ -43,25 +63,25 @@
     <p class="hero-financing">5% de entrada &nbsp;·&nbsp; até 240 meses &nbsp;·&nbsp; 0,2% ao mês</p>
   </div>
 
-  <div class="stats-strip">
+  <div class="stats-strip" aria-label="Dados do empreendimento">
     <div class="stats-inner">
       <div class="stat-item">
-        <i class="ti ti-map-pin"></i>
+        <i class="ti ti-map-pin" aria-hidden="true"></i>
         <span><strong>4.300</strong> lotes residenciais</span>
       </div>
-      <div class="stat-sep"></div>
+      <div class="stat-sep" aria-hidden="true"></div>
       <div class="stat-item">
-        <i class="ti ti-building-community"></i>
+        <i class="ti ti-building-community" aria-hidden="true"></i>
         <span><strong>15</strong> residenciais planejados</span>
       </div>
-      <div class="stat-sep"></div>
+      <div class="stat-sep" aria-hidden="true"></div>
       <div class="stat-item">
-        <i class="ti ti-trees"></i>
-        <span><strong>280mil m²</strong> de preservação permanente</span>
+        <i class="ti ti-trees" aria-hidden="true"></i>
+        <span><strong>280 mil m²</strong> de preservação permanente</span>
       </div>
-      <div class="stat-sep"></div>
+      <div class="stat-sep" aria-hidden="true"></div>
       <div class="stat-item">
-        <i class="ti ti-certificate"></i>
+        <i class="ti ti-certificate" aria-hidden="true"></i>
         <span><strong>100%</strong> regularizado · Terracap</span>
       </div>
     </div>
@@ -119,18 +139,22 @@
       <p class="lede center" style="color:var(--verde-200);">Navegue pelas fotos ou mergulhe no tour virtual 360° do complexo.</p>
     </div>
 
-    <div class="explora-tabs">
-      <button class="explora-tab active" data-panel="fotos" onclick="exploraTab('fotos',this)">
-        <i class="ti ti-photo"></i> Galeria de fotos
+    <div class="explora-tabs" role="tablist" aria-label="Visualização do empreendimento">
+      <button class="explora-tab active" data-panel="fotos" role="tab"
+              aria-selected="true" aria-controls="explora-fotos" id="tab-fotos"
+              onclick="exploraTab('fotos',this)" type="button">
+        <i class="ti ti-photo" aria-hidden="true"></i> Galeria de fotos
       </button>
-      <button class="explora-tab" data-panel="tour" onclick="exploraTab('tour',this)" id="tab-tour">
-        <i class="ti ti-360"></i> Tour virtual 360°
+      <button class="explora-tab" data-panel="tour" role="tab"
+              aria-selected="false" aria-controls="explora-tour" id="tab-tour"
+              onclick="exploraTab('tour',this)" type="button">
+        <i class="ti ti-360" aria-hidden="true"></i> Tour virtual 360°
       </button>
     </div>
   </div>
 
   <!-- Painel: Galeria -->
-  <div class="explora-panel active" id="explora-fotos">
+  <div class="explora-panel active" id="explora-fotos" role="tabpanel" aria-labelledby="tab-fotos" tabindex="0">
     <div class="galeria-grid" id="galeria-grid">
       <div class="galeria-item galeria-destaque" onclick="lbOpen(0)">
         <img src="img/jacarandas/DJI_20260512092800_0001_V_ponto+1.jpeg" alt="Vista aérea — Jacarandás" loading="lazy">
@@ -192,7 +216,7 @@
   </div>
 
   <!-- Painel: Tour 360° -->
-  <div class="explora-panel" id="explora-tour">
+  <div class="explora-panel" id="explora-tour" role="tabpanel" aria-labelledby="tab-tour" tabindex="0">
     <div class="tour-stage">
       <iframe
         class="tour-iframe"
@@ -243,11 +267,11 @@
           <div class="maps-info-item"><i class="ti ti-trees"></i><span>280 mil m² de preservação permanente</span></div>
         </div>
         <div class="maps-btns">
-          <a href="https://maps.google.com/?q=Aldeias+do+Cerrado+Jardim+Botanico+Brasilia" target="_blank" rel="noopener" class="maps-btn">
-            <i class="ti ti-map-2"></i> Google Maps
+          <a href="https://maps.google.com/?q=Aldeias+do+Cerrado+Jardim+Botanico+Brasilia" target="_blank" rel="noopener" class="maps-btn" aria-label="Abrir no Google Maps (abre em nova aba)">
+            <i class="ti ti-map-2" aria-hidden="true"></i> Google Maps
           </a>
-          <a href="https://waze.com/ul?q=Aldeias+do+Cerrado+Brasilia+DF" target="_blank" rel="noopener" class="maps-btn">
-            <i class="ti ti-navigation"></i> Waze
+          <a href="https://waze.com/ul?q=Aldeias+do+Cerrado+Brasilia+DF" target="_blank" rel="noopener" class="maps-btn" aria-label="Abrir no Waze (abre em nova aba)">
+            <i class="ti ti-navigation" aria-hidden="true"></i> Waze
           </a>
         </div>
       </div>
@@ -265,11 +289,18 @@
 </section>
 
 <!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox" onclick="lbBgClose(event)">
-  <button class="lb-close" onclick="lbClose()"><i class="ti ti-x"></i></button>
-  <button class="lb-nav lb-prev" onclick="lbNav(-1,event)"><i class="ti ti-chevron-left"></i></button>
-  <img id="lb-img" src="" alt="">
-  <button class="lb-nav lb-next" onclick="lbNav(1,event)"><i class="ti ti-chevron-right"></i></button>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true"
+     aria-label="Visualizador de imagens" onclick="lbBgClose(event)">
+  <button class="lb-close" type="button" aria-label="Fechar visualizador" onclick="lbClose()">
+    <i class="ti ti-x" aria-hidden="true"></i>
+  </button>
+  <button class="lb-nav lb-prev" type="button" aria-label="Imagem anterior" onclick="lbNav(-1,event)">
+    <i class="ti ti-chevron-left" aria-hidden="true"></i>
+  </button>
+  <img id="lb-img" src="" alt="" role="img">
+  <button class="lb-nav lb-next" type="button" aria-label="Próxima imagem" onclick="lbNav(1,event)">
+    <i class="ti ti-chevron-right" aria-hidden="true"></i>
+  </button>
 </div>
 
 <script>
@@ -278,9 +309,13 @@ let tourHintTimer = null;
 
 function exploraTab(panel, btn) {
   document.querySelectorAll('.explora-panel').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.explora-tab').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.explora-tab').forEach(b => {
+    b.classList.remove('active');
+    b.setAttribute('aria-selected', 'false');
+  });
   document.getElementById('explora-' + panel).classList.add('active');
   btn.classList.add('active');
+  btn.setAttribute('aria-selected', 'true');
 
   if (panel === 'tour') {
     const h = document.getElementById('tour-hint');
@@ -327,30 +362,74 @@ const lbSrcs = [
   'img/sucupiras/DJI_20260622154342_0004_V_QD+4+-+SUCUPIRA-02.jpeg',
   'img/sucupiras/DJI_20260622154349_0005_V.jpeg'
 ];
+const lbAlts = [
+  'Vista aérea — Jacarandás ponto 1',
+  'Vista aérea — Jacarandás ponto 2',
+  'Vista aérea — Jacarandás',
+  'Jacarandás — Área de lazer',
+  'Vista aérea — Aldeias do Cerrado',
+  'Aldeias do Cerrado — Vista geral',
+  'Aldeias do Cerrado',
+  'Modelo de Casa Padrão — Foto 1',
+  'Modelo de Casa Padrão — Foto 2',
+  'Modelo de Casa Padrão — Foto 3',
+  'Vista aérea — Sucupiras ponto 1',
+  'Vista aérea — Sucupiras ponto 2',
+  'Vista aérea — Sucupiras ponto 3',
+  'Vista aérea — Sucupiras ponto 4'
+];
 let lbIdx = 0;
+let lbTrigger = null;
 
 function lbOpen(i) {
+  lbTrigger = document.activeElement;
   lbIdx = i;
-  document.getElementById('lb-img').src = lbSrcs[i];
-  document.getElementById('lightbox').classList.add('open');
+  const img = document.getElementById('lb-img');
+  img.src = lbSrcs[i];
+  img.alt = lbAlts[i] || '';
+  const lb = document.getElementById('lightbox');
+  lb.classList.add('open');
+  lb.removeAttribute('aria-hidden');
   document.body.style.overflow = 'hidden';
+  document.querySelector('.lb-close').focus();
 }
 function lbClose() {
-  document.getElementById('lightbox').classList.remove('open');
+  const lb = document.getElementById('lightbox');
+  lb.classList.remove('open');
+  lb.setAttribute('aria-hidden', 'true');
   document.body.style.overflow = '';
+  if (lbTrigger) lbTrigger.focus();
 }
 function lbBgClose(e) { if (e.target === document.getElementById('lightbox')) lbClose(); }
 function lbNav(dir, e) {
   e.stopPropagation();
   lbIdx = (lbIdx + dir + lbSrcs.length) % lbSrcs.length;
-  document.getElementById('lb-img').src = lbSrcs[lbIdx];
+  const img = document.getElementById('lb-img');
+  img.src = lbSrcs[lbIdx];
+  img.alt = lbAlts[lbIdx] || '';
 }
+
+// Teclado: Esc, setas, Tab trap no lightbox
 document.addEventListener('keydown', e => {
-  if (!document.getElementById('lightbox').classList.contains('open')) return;
-  if (e.key === 'Escape') lbClose();
-  if (e.key === 'ArrowLeft')  lbNav(-1, { stopPropagation: () => {} });
-  if (e.key === 'ArrowRight') lbNav( 1, { stopPropagation: () => {} });
+  const lb = document.getElementById('lightbox');
+  if (!lb.classList.contains('open')) return;
+  if (e.key === 'Escape') { lbClose(); return; }
+  if (e.key === 'ArrowLeft')  { lbNav(-1, { stopPropagation: () => {} }); return; }
+  if (e.key === 'ArrowRight') { lbNav( 1, { stopPropagation: () => {} }); return; }
+  if (e.key === 'Tab') {
+    const focusable = lb.querySelectorAll('button');
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault(); last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault(); first.focus();
+    }
+  }
 });
+
+// Oculto de AT por padrão
+document.getElementById('lightbox').setAttribute('aria-hidden', 'true');
 </script>
 
 <!-- DEPOIMENTOS -->
@@ -364,7 +443,7 @@ document.addEventListener('keydown', e => {
       <div class="depo-card">
         <p class="depo-quote">"Sempre quis morar próximo à natureza sem perder a praticidade de Brasília. O Aldeias do Cerrado foi a escolha certa para a nossa família."</p>
         <div class="depo-author">
-          <div class="depo-avatar"><img src="img/icones/conta-de-usuario.png" alt=""></div>
+          <div class="depo-avatar"><img src="img/icones/conta-de-usuario.png" alt="Foto de Mariana Costa"></div>
           <div>
             <strong>Mariana Costa</strong>
             <span>Residencial Jacarandás &nbsp;·&nbsp; lote adquirido em 2025</span>
@@ -374,7 +453,7 @@ document.addEventListener('keydown', e => {
       <div class="depo-card">
         <p class="depo-quote">"A transparência da Terracap e o processo facilitado foram decisivos. Em poucos meses meu lote estava regularizado e com toda documentação em mãos."</p>
         <div class="depo-author">
-          <div class="depo-avatar"><img src="img/icones/conta-de-usuario.png" alt=""></div>
+          <div class="depo-avatar"><img src="img/icones/conta-de-usuario.png" alt="Foto de Ricardo Alves"></div>
           <div>
             <strong>Ricardo Alves</strong>
             <span>Residencial Sucupiras &nbsp;·&nbsp; lote adquirido em 2024</span>
@@ -384,7 +463,7 @@ document.addEventListener('keydown', e => {
       <div class="depo-card">
         <p class="depo-quote">"Investi pensando na valorização. Em dois anos o m² da região subiu consideravelmente — foi a melhor decisão financeira que tomei."</p>
         <div class="depo-author">
-          <div class="depo-avatar"><img src="img/icones/conta-de-usuario.png" alt=""></div>
+          <div class="depo-avatar"><img src="img/icones/conta-de-usuario.png" alt="Foto de Paulo Ferreira"></div>
           <div>
             <strong>Paulo Ferreira</strong>
             <span>Residencial Jacarandás &nbsp;·&nbsp; lote adquirido em 2023</span>
@@ -426,8 +505,8 @@ document.addEventListener('keydown', e => {
   </div>
 
   <div class="casa-carousel" id="casa-car">
-    <button class="casa-nav prev" onclick="casaNav(-1)" aria-label="Anterior">
-      <i class="ti ti-chevron-left"></i>
+    <button class="casa-nav prev" type="button" onclick="casaNav(-1)" aria-label="Imagem anterior da casa padrão">
+      <i class="ti ti-chevron-left" aria-hidden="true"></i>
     </button>
 
     <div class="casa-stage">
@@ -451,8 +530,8 @@ document.addEventListener('keydown', e => {
       </div>
     </div>
 
-    <button class="casa-nav next" onclick="casaNav(1)" aria-label="Próximo">
-      <i class="ti ti-chevron-right"></i>
+    <button class="casa-nav next" type="button" onclick="casaNav(1)" aria-label="Próxima imagem da casa padrão">
+      <i class="ti ti-chevron-right" aria-hidden="true"></i>
     </button>
   </div>
 </section>
@@ -560,17 +639,21 @@ document.addEventListener('keydown', e => {
     </div>
 
     <!-- Abas -->
-    <div class="obras-tabs">
-      <button class="obras-tab active" onclick="switchTab('jacarandas', this)">
-        <i class="ti ti-flower"></i> Jacarandás
+    <div class="obras-tabs" role="tablist" aria-label="Residenciais — andamento de obras">
+      <button class="obras-tab active" type="button" role="tab"
+              aria-selected="true" aria-controls="obras-jacarandas" id="tab-obras-jac"
+              onclick="switchTab('jacarandas', this)">
+        <i class="ti ti-flower" aria-hidden="true"></i> Jacarandás
       </button>
-      <button class="obras-tab" onclick="switchTab('sucupiras', this)">
-        <i class="ti ti-flower"></i> Sucupiras
+      <button class="obras-tab" type="button" role="tab"
+              aria-selected="false" aria-controls="obras-sucupiras" id="tab-obras-suc"
+              onclick="switchTab('sucupiras', this)">
+        <i class="ti ti-flower" aria-hidden="true"></i> Sucupiras
       </button>
     </div>
 
     <!-- ======================== PAINEL: JACARANDÁS ======================== -->
-    <div id="obras-jacarandas" class="obras-panel active">
+    <div id="obras-jacarandas" class="obras-panel active" role="tabpanel" aria-labelledby="tab-obras-jac" tabindex="0">
 
       <!-- Barras de progresso -->
       <div class="obras-progresso">
@@ -608,8 +691,8 @@ document.addEventListener('keydown', e => {
       <div class="tl-carousel" id="tl-jac">
 
         <div class="tl-stage">
-          <button class="tl-nav" onclick="tlNavManual('jac',-1)" aria-label="Anterior">
-            <i class="ti ti-chevron-left"></i>
+          <button class="tl-nav" type="button" onclick="tlNavManual('jac',-1)" aria-label="Mês anterior">
+            <i class="ti ti-chevron-left" aria-hidden="true"></i>
           </button>
 
           <div class="tl-slides-wrap">
@@ -644,8 +727,8 @@ document.addEventListener('keydown', e => {
             </div>
           </div><!-- /tl-slides-wrap -->
 
-          <button class="tl-nav" onclick="tlNavManual('jac', 1)" aria-label="Próximo">
-            <i class="ti ti-chevron-right"></i>
+          <button class="tl-nav" type="button" onclick="tlNavManual('jac', 1)" aria-label="Próximo mês">
+            <i class="ti ti-chevron-right" aria-hidden="true"></i>
           </button>
         </div><!-- /tl-stage -->
 
@@ -662,7 +745,7 @@ document.addEventListener('keydown', e => {
     </div><!-- /obras-jacarandas -->
 
     <!-- ======================== PAINEL: SUCUPIRAS ======================== -->
-    <div id="obras-sucupiras" class="obras-panel">
+    <div id="obras-sucupiras" class="obras-panel" role="tabpanel" aria-labelledby="tab-obras-suc" tabindex="0">
 
       <!-- Barras de progresso -->
       <div class="obras-progresso">
@@ -692,8 +775,8 @@ document.addEventListener('keydown', e => {
       <div class="tl-carousel" id="tl-suc">
 
         <div class="tl-stage">
-          <button class="tl-nav" onclick="tlNavManual('suc',-1)" aria-label="Anterior">
-            <i class="ti ti-chevron-left"></i>
+          <button class="tl-nav" type="button" onclick="tlNavManual('suc',-1)" aria-label="Mês anterior">
+            <i class="ti ti-chevron-left" aria-hidden="true"></i>
           </button>
 
           <div class="tl-slides-wrap">
@@ -728,8 +811,8 @@ document.addEventListener('keydown', e => {
             </div>
           </div>
 
-          <button class="tl-nav" onclick="tlNavManual('suc', 1)" aria-label="Próximo">
-            <i class="ti ti-chevron-right"></i>
+          <button class="tl-nav" type="button" onclick="tlNavManual('suc', 1)" aria-label="Próximo mês">
+            <i class="ti ti-chevron-right" aria-hidden="true"></i>
           </button>
         </div>
 
@@ -751,9 +834,13 @@ document.addEventListener('keydown', e => {
 // ── Abas ──────────────────────────────────────────────────────────────────
 function switchTab(id, btn) {
   document.querySelectorAll('.obras-panel').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.obras-tab').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.obras-tab').forEach(b => {
+    b.classList.remove('active');
+    b.setAttribute('aria-selected', 'false');
+  });
   document.getElementById('obras-' + id).classList.add('active');
   btn.classList.add('active');
+  btn.setAttribute('aria-selected', 'true');
 }
 
 // ── Carrossel linha do tempo ───────────────────────────────────────────────
@@ -888,29 +975,40 @@ document.addEventListener('DOMContentLoaded', casaRender);
           <div><b>Sede Terracap</b><span>SAM, Ed. Sede Terracap, Asa Norte, Brasília – DF</span></div>
         </li>
       </ul>
-      <form class="form-card" onsubmit="return false;">
+      <form class="form-card" onsubmit="handleFormSubmit(event)" novalidate aria-label="Formulário de contato">
         <p style="font-family:var(--serif); font-size:17px; color:var(--verde-700); margin-bottom:18px;">Fale com um especialista</p>
-        <div class="field"><label>Nome completo</label><input type="text" placeholder="Seu nome"></div>
-        <div class="field"><label>Telefone / WhatsApp</label><input type="text" placeholder="(61) 9xxxx-xxxx"></div>
         <div class="field">
-          <label>Qual residencial te interessa?</label>
-          <select>
-            <option>Selecione</option>
-            <option>Residencial Jacarandás</option>
-            <option>Residencial Sucupiras</option>
-            <option>Quero conhecer todos</option>
-            <option>Tenho dúvidas sobre documentação</option>
+          <label for="contato-nome">Nome completo <span aria-hidden="true" style="color:var(--verde-500);">*</span></label>
+          <input type="text" id="contato-nome" name="nome" placeholder="Seu nome completo" required autocomplete="name" aria-required="true">
+        </div>
+        <div class="field">
+          <label for="contato-tel">Telefone / WhatsApp <span aria-hidden="true" style="color:var(--verde-500);">*</span></label>
+          <input type="tel" id="contato-tel" name="telefone" placeholder="(61) 9xxxx-xxxx" required autocomplete="tel" aria-required="true">
+        </div>
+        <div class="field">
+          <label for="contato-residencial">Qual residencial te interessa?</label>
+          <select id="contato-residencial" name="residencial">
+            <option value="">Selecione</option>
+            <option value="jacarandas">Residencial Jacarandás</option>
+            <option value="sucupiras">Residencial Sucupiras</option>
+            <option value="todos">Quero conhecer todos</option>
+            <option value="documentacao">Tenho dúvidas sobre documentação</option>
           </select>
         </div>
-        <button class="btn btn-green" style="width:100%;">Quero ser contactado</button>
-        <p style="font-size:11px; color:var(--verde-400); text-align:center; margin-top:10px;">Retorno em até 1 hora &nbsp;·&nbsp; Seg–Sex, 7h–19h</p>
+        <div id="form-feedback" role="alert" aria-live="polite" style="display:none; font-size:13px; padding:10px; border-radius:6px; margin-bottom:12px;"></div>
+        <button type="submit" class="btn btn-green" style="width:100%;">Quero ser contactado</button>
+        <p style="font-size:11px; color:var(--verde-400); text-align:center; margin-top:10px;">
+          Campos com <span aria-hidden="true">*</span><span class="sr-only">asterisco</span> são obrigatórios
+          &nbsp;·&nbsp; Retorno em até 1 hora &nbsp;·&nbsp; Seg–Sex, 7h–19h
+        </p>
       </form>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
-<footer>
+</main>
+<footer role="contentinfo">
   <div class="wrap">
     <div class="footer-grid">
       <div>
@@ -940,6 +1038,84 @@ document.addEventListener('DOMContentLoaded', casaRender);
     </div>
   </div>
 </footer>
+
+<script>
+// ── Menu hamburger (mobile) ────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  const navToggle = document.getElementById('nav-toggle');
+  const mainNav   = document.getElementById('main-nav');
+  if (!navToggle || !mainNav) return;
+
+  function openNav() {
+    mainNav.classList.add('open');
+    navToggle.setAttribute('aria-expanded', 'true');
+    navToggle.setAttribute('aria-label', 'Fechar menu de navegação');
+    document.body.style.overflow = 'hidden';
+    const first = mainNav.querySelector('a, button');
+    if (first) first.focus();
+  }
+
+  function closeNav() {
+    mainNav.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+    navToggle.setAttribute('aria-label', 'Abrir menu de navegação');
+    document.body.style.overflow = '';
+  }
+
+  navToggle.addEventListener('click', () => {
+    mainNav.classList.contains('open') ? closeNav() : openNav();
+  });
+
+  mainNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeNav);
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && mainNav.classList.contains('open')) {
+      closeNav();
+      navToggle.focus();
+    }
+  });
+});
+
+// ── Formulário de contato ──────────────────────────────────────────────────
+function handleFormSubmit(e) {
+  e.preventDefault();
+  const form     = e.target;
+  const nome     = form.querySelector('#contato-nome');
+  const tel      = form.querySelector('#contato-tel');
+  const feedback = document.getElementById('form-feedback');
+
+  // Limpa erros anteriores
+  [nome, tel].forEach(el => el.removeAttribute('aria-invalid'));
+
+  let hasError = false;
+  if (!nome.value.trim()) {
+    nome.setAttribute('aria-invalid', 'true');
+    nome.focus();
+    hasError = true;
+  }
+  if (!tel.value.trim()) {
+    tel.setAttribute('aria-invalid', 'true');
+    if (!hasError) { tel.focus(); hasError = true; }
+  }
+
+  if (hasError) {
+    feedback.style.display = 'block';
+    feedback.style.background = '#fde8e8';
+    feedback.style.color = '#7a0000';
+    feedback.textContent = 'Por favor, preencha os campos obrigatórios (nome e telefone).';
+    return;
+  }
+
+  // Sucesso (protótipo)
+  feedback.style.display = 'block';
+  feedback.style.background = '#e6f4ea';
+  feedback.style.color = '#1a3a20';
+  feedback.textContent = '✓ Mensagem recebida! Nossa equipe entrará em contato em até 1 hora.';
+  form.reset();
+}
+</script>
 
 </body>
 </html>

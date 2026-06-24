@@ -17,6 +17,7 @@
   --dourado-600: #A37F2B;
   --dourado-500: #C9A24B;
   --dourado-300: #E3CD93;
+  --dourado-700: #7A5F15;
 
   --creme-100: #F4EFE3;
   --creme-50: #FBF9F3;
@@ -156,7 +157,7 @@ nav.main-nav a.active { color: var(--dourado-500); }
   font-size: 11px;
   letter-spacing: 2.5px;
   text-transform: uppercase;
-  color: var(--dourado-600);
+  color: var(--dourado-700);
   margin-bottom: 10px;
   display: block;
 }
@@ -220,7 +221,7 @@ p.lede { font-size: 15px; color: var(--texto-medio); max-width: 620px; }
 .hero .cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 .hero-financing {
   font-size: 12.5px;
-  color: rgba(212, 220, 200, 0.55);
+  color: rgba(212, 220, 200, 0.85);
   margin-top: 18px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -275,6 +276,9 @@ p.lede { font-size: 15px; color: var(--texto-medio); max-width: 620px; }
   background: rgba(255, 255, 255, 0.15);
   flex-shrink: 0;
 }
+
+/* Botão hamburger — oculto em desktop, visível em mobile via @media */
+.nav-toggle { display: none; }
 
 /* ---------- section spacing ---------- */
 .section { padding: 72px 0; }
@@ -469,7 +473,7 @@ p.lede { font-size: 15px; color: var(--texto-medio); max-width: 620px; }
   font-weight: 700;
   letter-spacing: 1.8px;
   text-transform: uppercase;
-  color: var(--dourado-600);
+  color: var(--dourado-700);
   margin-bottom: 4px;
 }
 .tl-caption p { font-size: 13px; color: var(--texto-medio); }
@@ -1182,7 +1186,7 @@ p.lbl { font-size: 12px; color: var(--texto-medio); margin-top: 4px; text-transf
 .casa-col { list-style: none; }
 .casa-col li {
   font-size: 13.5px;
-  color: var(--dourado-600);
+  color: var(--dourado-700);
   font-weight: 500;
   padding: 5px 0;
   display: flex;
@@ -1593,9 +1597,57 @@ p.lbl { font-size: 12px; color: var(--texto-medio); margin-top: 4px; text-transf
 .lb-prev { left: 20px; }
 .lb-next { right: 20px; }
 
-/* ---------- responsive ---------- */
-@media (max-width: 900px) {
-  nav.main-nav { display: none; }
+/* ---------- breakpoint intermediário (desktop largo → estreito) ----------
+   Cobre: 200% de zoom em telas > 2200px, tablets landscape, monitores 1280px
+   -------------------------------------------------------------------------  */
+@media (min-width: 1101px) and (max-width: 1360px) {
+  nav.main-nav { gap: 16px; font-size: 12.5px; }
+  .steps-grid   { grid-template-columns: 1fr 1fr; }
+  .depo-grid    { grid-template-columns: 1fr 1fr; }
+  .financ-num   { font-size: 42px; }
+  .stat-item    { padding: 0 16px; }
+}
+
+/* ---------- responsive principal ----------------------------------------
+   Cobre: 200% de zoom em telas até 2200px, tablets, mobile
+   Breakpoint em 1100px garante boa usabilidade a 200% de zoom (1920px→960px)
+   -------------------------------------------------------------------------  */
+@media (max-width: 1100px) {
+  /* Mobile nav: hamburguer → overlay tela cheia */
+  .nav-toggle { display: flex; }
+  #topbar-cta { display: none; }
+  .nav-cta-mobile { display: inline-flex !important; }
+
+  nav.main-nav {
+    position: fixed;
+    inset: 0;
+    background: var(--verde-900);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    z-index: 99;
+    display: none;
+    padding: 80px 24px 40px;
+    overflow-y: auto;
+  }
+  nav.main-nav.open { display: flex; }
+  nav.main-nav a:not(.btn) {
+    color: var(--creme-100);
+    font-size: 20px;
+    padding: 12px 24px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    border-radius: var(--radius-sm);
+    width: 100%;
+    justify-content: center;
+    letter-spacing: 0.03em;
+  }
+  nav.main-nav a:not(.btn):hover,
+  nav.main-nav a:not(.btn).active { color: var(--dourado-300); }
+  nav.main-nav .btn { margin-top: 16px; padding: 14px 32px; font-size: 15px; }
+
   .grid-2, .grid-3, .client-cards, .footer-grid, .doc-grid, .res-layout, .res-meta, .steps-grid, .depo-grid { grid-template-columns: 1fr; }
   .lifestyle-block { grid-template-columns: 1fr; min-height: auto; gap: 12px; }
   .lifestyle-left { padding-right: 0; }
@@ -1632,4 +1684,126 @@ p.lbl { font-size: 12px; color: var(--texto-medio); margin-top: 4px; text-transf
   .lb-next { right: 10px; }
   .explora-tab { padding: 12px 18px; font-size: 12px; }
   .explora-tabs { overflow-x: auto; }
+
+  /* Touch targets mínimos */
+  .obras-tab,
+  .explora-tab { min-height: 44px; }
+
+  .tl-dot { padding-top: 24px; min-width: 60px; }
+
+  /* Galeria: coluna única em telas muito pequenas */
+  @media (max-width: 480px) {
+    .galeria-grid { columns: 1; }
+  }
+}
+
+/* ===========================================================
+   ACESSIBILIDADE (A11Y) — skip link, foco, hamburger, motion
+   =========================================================== */
+
+/* ── Skip navigation ──────────────────────────────────────── */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 8px;
+  background: var(--verde-900);
+  color: var(--creme-100);
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  z-index: 99999;
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+  text-decoration: none;
+  border: 2px solid var(--dourado-500);
+  transition: top 0.15s;
+}
+.skip-link:focus {
+  top: 0;
+  outline: none;
+}
+
+/* ── Focus visível (teclado) ──────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--dourado-500);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ── Hamburger toggle — estilos visuais (display gerenciado acima) ── */
+.nav-toggle {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  min-width: 44px;
+  min-height: 44px;
+  border-radius: var(--radius-sm);
+  transition: background 0.2s;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 101;
+}
+.nav-toggle:hover { background: rgba(255, 255, 255, 0.08); }
+.hamburger-bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--creme-100);
+  border-radius: 2px;
+  transition: transform 0.28s ease, opacity 0.28s ease;
+  pointer-events: none;
+}
+.nav-toggle[aria-expanded="true"] .hamburger-bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.nav-toggle[aria-expanded="true"] .hamburger-bar:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.nav-toggle[aria-expanded="true"] .hamburger-bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* CTA do nav só aparece no overlay mobile */
+.nav-cta-mobile { display: none; }
+
+/* ── Reduced motion ───────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── Aumento de tamanho mínimo de toque em telas muito pequenas ── */
+@media (max-width: 480px) {
+  .btn { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; }
+  .maps-btn { min-height: 44px; }
+  .hero h1 { font-size: 28px; }
+  .stat-item { padding: 4px 8px; font-size: 11px; }
+  .wrap { padding: 0 16px; }
+  .section { padding: 52px 0; }
+  .financ-num { font-size: 30px; }
+}
+
+/* ── Link externo: aviso visualmente oculto ───────────────── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
