@@ -852,6 +852,34 @@ p.lede { font-size: 15px; color: var(--texto-medio); max-width: 620px; }
 }
 .tour-hint i { font-size: 16px; color: var(--dourado-400, var(--dourado-300)); }
 
+/* Divisor entre tours */
+.tour-divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 28px 32px 0;
+  color: var(--verde-200);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+.tour-divider::before,
+.tour-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(255,255,255,0.12);
+}
+.tour-divider i { color: var(--dourado-400, #c9a84c); font-size: 16px; }
+
+/* Tour da casa — altura menor que o tour do complexo */
+.tour-stage-casa {
+  height: 60vh;
+  min-height: 400px;
+  margin-top: 20px;
+}
+
 /* ---------- area cliente / contato ---------- */
 .client-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 .client-card {
