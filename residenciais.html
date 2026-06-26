@@ -99,7 +99,7 @@
         </div>
 
         <div class="cta-row" style="margin-top:28px; display:flex; gap:12px; flex-wrap:wrap;">
-          <a href="documentos.html" class="btn btn-green">Ver implantação e plantas</a>
+          <button type="button" class="btn btn-green" onclick="abrirLightbox('img/sucupiras/ofertados-1024x723.png')">Ver implantação e plantas</button>
           <a href="index.html#contato" class="btn btn-outline-dark">Falar com a equipe</a>
         </div>
       </div>
@@ -131,7 +131,7 @@
         </div>
 
         <div class="cta-row" style="margin-top:28px; display:flex; gap:12px; flex-wrap:wrap;">
-          <a href="documentos.html" class="btn btn-green">Ver implantação e plantas</a>
+          <button type="button" class="btn btn-green" onclick="abrirLightbox('img/sucupiras/ofertados-1024x723.png')">Ver implantação e plantas</button>
           <a href="index.html#contato" class="btn btn-outline-dark">Falar com a equipe</a>
         </div>
       </div>
@@ -296,6 +296,138 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape' && mainNav.classList.contains('open')) { closeNav(); navToggle.focus(); }
   });
+});
+</script>
+
+<!-- Lightbox -->
+<style>
+@keyframes lb-fade-bg { from { opacity:0 } to { opacity:1 } }
+@keyframes lb-pop-in  { from { transform:scale(.72); opacity:0 } to { transform:scale(1); opacity:1 } }
+#lightbox.open   { animation: lb-fade-bg .22s ease both; }
+#lightbox-img.lb-in { animation: lb-pop-in .3s cubic-bezier(.34,1.56,.64,1) both; }
+#lb-hint { position:absolute; bottom:18px; left:50%; transform:translateX(-50%); color:rgba(255,255,255,.55); font-size:13px; pointer-events:none; white-space:nowrap; }
+</style>
+<div id="lightbox" role="dialog" aria-modal="true" aria-label="Imagem ampliada" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9999;align-items:center;justify-content:center;overflow:hidden;">
+  <img id="lightbox-img" src="" alt="Implantação e plantas" style="max-width:92vw;max-height:92vh;border-radius:6px;box-shadow:0 8px 40px rgba(0,0,0,.6);cursor:zoom-in;user-select:none;will-change:transform;">
+  <button type="button" id="lb-close" aria-label="Fechar imagem" style="position:absolute;top:16px;right:20px;background:none;border:none;color:#fff;font-size:32px;cursor:pointer;line-height:1;z-index:1;">&#x2715;</button>
+  <span id="lb-hint">Scroll para zoom · arraste para mover · Esc para fechar</span>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var lb    = document.getElementById('lightbox');
+  var img   = document.getElementById('lightbox-img');
+  var scale = 1, tx = 0, ty = 0;
+  var drag  = false, sx, sy, stx, sty, touchDist;
+
+  function apply(smooth) {
+    img.style.transition = smooth ? 'transform .12s ease' : 'none';
+    img.style.transform  = 'translate(' + tx + 'px,' + ty + 'px) scale(' + scale + ')';
+    img.style.cursor     = scale > 1 ? (drag ? 'grabbing' : 'grab') : 'zoom-in';
+  }
+
+  function reset() {
+    scale = 1; tx = 0; ty = 0; drag = false;
+    img.style.transform  = '';
+    img.style.transition = '';
+    img.style.cursor     = 'zoom-in';
+    img.style.maxWidth   = '92vw';
+    img.style.maxHeight  = '92vh';
+  }
+
+  function fechar() {
+    lb.classList.remove('open');
+    lb.style.display = 'none';
+    reset();
+    document.body.style.overflow = '';
+    document.removeEventListener('keydown', esc);
+  }
+
+  function esc(e) { if (e.key === 'Escape') fechar(); }
+
+  /* expõe globalmente para o onclick do botão */
+  window.abrirLightbox = function (src) {
+    reset();
+    img.src = src;
+    lb.style.display = 'flex';
+    /* anima a entrada: adiciona classe lb-in e remove quando a animação terminar */
+    img.classList.add('lb-in');
+    img.addEventListener('animationend', function h() {
+      img.classList.remove('lb-in');
+      img.removeEventListener('animationend', h);
+    });
+    requestAnimationFrame(function () { lb.classList.add('open'); });
+    document.body.style.overflow = 'hidden';
+    document.addEventListener('keydown', esc);
+  };
+
+  document.getElementById('lb-close').addEventListener('click', fechar);
+  lb.addEventListener('click', function (e) { if (e.target === lb) fechar(); });
+
+  /* zoom com scroll */
+  lb.addEventListener('wheel', function (e) {
+    e.preventDefault();
+    var d = e.deltaY < 0 ? 1.15 : 1 / 1.15;
+    scale = Math.min(Math.max(scale * d, 1), 6);
+    if (scale <= 1) { reset(); return; }
+    img.style.maxWidth = 'none';
+    img.style.maxHeight = 'none';
+    apply(true);
+  }, { passive: false });
+
+  /* duplo clique para alternar 2× / normal */
+  img.addEventListener('dblclick', function (e) {
+    e.stopPropagation();
+    if (scale > 1) { reset(); return; }
+    scale = 2;
+    img.style.maxWidth = 'none';
+    img.style.maxHeight = 'none';
+    apply(true);
+  });
+
+  /* arrastar (mouse) */
+  img.addEventListener('mousedown', function (e) {
+    if (scale <= 1) return;
+    e.preventDefault();
+    drag = true; sx = e.clientX; sy = e.clientY; stx = tx; sty = ty;
+    apply(false);
+  });
+  window.addEventListener('mousemove', function (e) {
+    if (!drag) return;
+    tx = stx + (e.clientX - sx);
+    ty = sty + (e.clientY - sy);
+    apply(false);
+  });
+  window.addEventListener('mouseup', function () {
+    if (drag) { drag = false; apply(false); }
+  });
+
+  /* pinça + arrastar (touch) */
+  img.addEventListener('touchstart', function (e) {
+    if (e.touches.length === 2) {
+      touchDist = Math.hypot(e.touches[0].clientX - e.touches[1].clientX,
+                             e.touches[0].clientY - e.touches[1].clientY);
+    } else if (e.touches.length === 1 && scale > 1) {
+      drag = true; sx = e.touches[0].clientX; sy = e.touches[0].clientY; stx = tx; sty = ty;
+    }
+  }, { passive: true });
+  img.addEventListener('touchmove', function (e) {
+    if (e.touches.length === 2 && touchDist) {
+      e.preventDefault();
+      var d = Math.hypot(e.touches[0].clientX - e.touches[1].clientX,
+                         e.touches[0].clientY - e.touches[1].clientY);
+      scale = Math.min(Math.max(scale * (d / touchDist), 1), 6);
+      touchDist = d;
+      if (scale > 1) { img.style.maxWidth = 'none'; img.style.maxHeight = 'none'; }
+      apply(true);
+    } else if (e.touches.length === 1 && drag) {
+      e.preventDefault();
+      tx = stx + (e.touches[0].clientX - sx);
+      ty = sty + (e.touches[0].clientY - sy);
+      apply(false);
+    }
+  }, { passive: false });
+  img.addEventListener('touchend', function () { drag = false; touchDist = null; });
 });
 </script>
 </body>
