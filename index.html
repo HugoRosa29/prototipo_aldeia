@@ -17,7 +17,7 @@
   <div class="wrap">
     <div class="brand">
       <a href="index.html" aria-label="Aldeias do Cerrado — página inicial" style="display:flex;align-items:center;gap:10px;">
-        <img src="img/Logo-Aldeis-do-cerrado-1024x239.png" alt="Aldeias do Cerrado">
+        <img src="img/icones/Logo-Aldeis-do-cerrado-1024x239.png" alt="Aldeias do Cerrado">
       </a>
       <span class="brand-sep" aria-hidden="true"></span>
       <a href="https://www.terracap.df.gov.br/" target="_blank" rel="noopener" aria-label="Acessar site da Terracap (abre em nova aba)">
@@ -53,7 +53,7 @@
 <!-- HERO -->
 <main id="conteudo-principal">
 <section class="hero">
-  <img class="hero-video" src="img/Aldeias-do-Cerrado-1.webp" alt="Aldeias do Cerrado">
+  <img class="hero-video" src="img/Aldeias-do-Cerrado-1.png" alt="Aldeias do Cerrado">
   <div class="hero-overlay"></div>
   <div class="wrap">
     <span class="eyebrow on-dark">complexo condominial · brasília, df</span>
@@ -96,7 +96,7 @@
 </section>
 
 <!-- RESIDENCIAIS RESUMO -->
-<section class="section" id="residenciais" style="background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('img/Aldeias-do-Cerrado_4.webp') center/cover no-repeat;">
+<section class="section" id="residenciais" style="background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('img/Aldeias-do-Cerrado_4.png') center/cover no-repeat;">
   <div class="wrap">
     <div class="center" style="max-width:600px;">
       <span class="eyebrow">os residenciais</span>
@@ -143,7 +143,7 @@
     <div class="explora-header">
       <span class="eyebrow on-dark">o empreendimento</span>
       <h2 class="section-title" style="color:var(--creme-100);">Explore o Aldeias do Cerrado</h2>
-      <p class="lede center" style="color:var(--verde-200);">Navegue pelas fotos ou mergulhe no tour virtual 360° do complexo.</p>
+      <p class="lede center" style="color:var(--verde-200);">Navegue pelas fotos ou explore os detalhes do Aldeias.</p>
     </div>
 
     <div class="explora-tabs" role="tablist" aria-label="Visualização do empreendimento">
@@ -190,7 +190,7 @@
           <div class="galeria-overlay"><img src="img/icones/ampliacao.png" alt="" class="galeria-zoom-icon"></div>
         </div>
         <div class="gc-slide" onclick="lbOpen(6)">
-          <img src="img/sucupiras_3d/Canteiro Manhã.jpg" alt="Sucupiras — Canteiro" loading="lazy">
+          <img src="img/Aldeias-do-Cerrado-2-1.png" alt="Sucupiras — Canteiro" loading="lazy">
           <div class="galeria-overlay"><img src="img/icones/ampliacao.png" alt="" class="galeria-zoom-icon"></div>
         </div>
         <div class="gc-slide" onclick="lbOpen(7)">
@@ -301,6 +301,69 @@
       <div class="tour-badge">
         <i class="ti ti-home"></i>
         <span>Tour da Casa 3D</span>
+      </div>
+    </div>
+
+    <!-- Projeto de Casa Padrão -->
+    <div class="tour-divider">
+      <span><i class="ti ti-blueprint" aria-hidden="true"></i> Projeto de Casa Padrão Pré-Aprovado</span>
+    </div>
+
+    <div class="casa-padrao-wrap">
+      <div class="wrap">
+        <p class="lede center casa-padrao-lede">Além dos benefícios de viver em harmonia com a natureza e segurança que o Residencial das Sucupiras oferece, adquirindo a sua unidade, você já terá à sua disposição um projeto pré-aprovado de construção para uma casa padrão, com área construída de 153 m², que conta os seguintes ambientes:</p>
+
+        <div class="casa-features casa-features-dark">
+          <ul class="casa-col">
+            <li>Área de serviço</li>
+            <li>Cozinha</li>
+            <li>Corredor</li>
+            <li>Despensa</li>
+          </ul>
+          <ul class="casa-col">
+            <li>Garagem</li>
+            <li>Lavabo</li>
+            <li>Sala de estar</li>
+            <li>Sala de jantar</li>
+          </ul>
+          <ul class="casa-col">
+            <li>Varanda</li>
+            <li>Três quartos, sendo um tipo suíte</li>
+            <li>WC</li>
+            <li>WC de serviço</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="casa-carousel" id="casa-car">
+        <button class="casa-nav prev" type="button" onclick="casaNav(-1)" aria-label="Imagem anterior da casa padrão">
+          <img src="img/icones/seta-esquerda.png" alt="">
+        </button>
+
+        <div class="casa-stage">
+          <div class="casa-slide active">
+            <div class="casa-foto">
+              <img src="img/casa-modelo/Foto-1.webp" alt="Modelo de Casa Padrão">
+            </div>
+            <span class="casa-caption">Modelo de Casa Padrão. Imagem ilustrativa</span>
+          </div>
+          <div class="casa-slide next-1">
+            <div class="casa-foto">
+              <img src="img/casa-modelo/Foto-2.webp" alt="Modelo de Casa Padrão">
+            </div>
+            <span class="casa-caption">Modelo de Casa Padrão. Imagem ilustrativa</span>
+          </div>
+          <div class="casa-slide prev-1">
+            <div class="casa-foto">
+              <img src="img/casa-modelo/Casa-4-1.webp" alt="Modelo de Casa Padrão">
+            </div>
+            <span class="casa-caption">Modelo de Casa Padrão. Imagem ilustrativa</span>
+          </div>
+        </div>
+
+        <button class="casa-nav next" type="button" onclick="casaNav(1)" aria-label="Próxima imagem da casa padrão">
+          <img src="img/icones/seta-direita.png" alt="">
+        </button>
       </div>
     </div>
   </div>
@@ -424,7 +487,7 @@ const lbSrcs = [
   'img/jacarandas/DJI_20260512093111_0005_V.jpeg',
   'img/jacarandas/DJI_20260619172249_0017_V_JACARANDAS+LAZER.jpeg',
   'img/Aldeias-do-Cerrado_4.webp',
-  'img/Aldeias-do-Cerrado-2-1.webp',
+  'img/Aldeias-do-Cerrado-2-1.png',
   'img/Aldeias-do-Cerrado-1.webp',
   'img/casa-modelo/Foto-1.webp',
   'img/casa-modelo/Foto-2.webp',
@@ -640,68 +703,6 @@ document.addEventListener('DOMContentLoaded', () => {
   </div>
 </section>
 
-<!-- PROJETO DE CASA PADRÃO -->
-<section class="section" id="casa-padrao">
-  <div class="wrap">
-    <div class="center" style="max-width:820px; margin-bottom:32px;">
-      <h2 class="section-title" style="font-weight:700;">Projeto de Casa Padrão Pré-Aprovado</h2>
-      <p class="lede center" style="margin-top:16px;">Além dos benefícios de viver em harmonia com a natureza e segurança que o Residencial das Sucupiras oferece, adquirindo a sua unidade, você já terá à sua disposição um projeto pré-aprovado de construção para uma casa padrão, com área construída de 153 m², que conta os seguintes ambientes:</p>
-    </div>
-
-    <div class="casa-features">
-      <ul class="casa-col">
-        <li>Área de serviço</li>
-        <li>Cozinha</li>
-        <li>Corredor</li>
-        <li>Despensa</li>
-      </ul>
-      <ul class="casa-col">
-        <li>Garagem</li>
-        <li>Lavabo</li>
-        <li>Sala de estar</li>
-        <li>Sala de jantar</li>
-      </ul>
-      <ul class="casa-col">
-        <li>Varanda</li>
-        <li>Três quartos, sendo um tipo suíte</li>
-        <li>"WC"</li>
-        <li>"WC" de empregada</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="casa-carousel" id="casa-car">
-    <button class="casa-nav prev" type="button" onclick="casaNav(-1)" aria-label="Imagem anterior da casa padrão">
-      <img src="img/icones/seta-esquerda.png" alt="">
-    </button>
-
-    <div class="casa-stage">
-      <div class="casa-slide active">
-        <div class="casa-foto">
-          <img src="img/casa-modelo/Foto-1.webp" alt="Modelo de Casa Padrão">
-        </div>
-        <span class="casa-caption">Modelo de Casa Padrão. Imagem ilustrativa</span>
-      </div>
-      <div class="casa-slide next-1">
-        <div class="casa-foto">
-          <img src="img/casa-modelo/Foto-2.webp" alt="Modelo de Casa Padrão">
-        </div>
-        <span class="casa-caption">Modelo de Casa Padrão. Imagem ilustrativa</span>
-      </div>
-      <div class="casa-slide next-2">
-        <div class="casa-foto">
-          <img src="img/casa-modelo/Casa-4-1.webp" alt="Modelo de Casa Padrão">
-        </div>
-        <span class="casa-caption">Modelo de Casa Padrão. Imagem ilustrativa</span>
-      </div>
-    </div>
-
-    <button class="casa-nav next" type="button" onclick="casaNav(1)" aria-label="Próxima imagem da casa padrão">
-      <img src="img/icones/seta-direita.png" alt="">
-    </button>
-  </div>
-</section>
-
 <!-- COMO COMPRAR -->
 <section class="section bg-bege" id="comocomprar">
   <div class="wrap">
@@ -792,7 +793,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <p class="lede center" style="color:var(--verde-200);">Passe o mouse sobre cada residencial no masterplan para conhecê-lo.</p>
     </div>
     <div class="masterplan-wrap">
-      <img src="img/Mapa-Aldeias-do-Cerrado-1.webp" alt="Masterplan Aldeias do Cerrado" class="masterplan-img">
+      <img src="img/Mapa-Aldeias-do-Cerrado-1.png" alt="Masterplan Aldeias do Cerrado" class="masterplan-img">
       <a href="residenciais.html#jacarandas" class="mp-label" style="top:11%;left:11%">Jacarandás</a>
       <a href="residenciais.html" class="mp-label" style="top:23%;left:32%">Buritis</a>
       <a href="residenciais.html#sucupiras" class="mp-label" style="top:31%;left:16%">Res. das Sucupiras</a>
@@ -915,12 +916,20 @@ document.addEventListener('DOMContentLoaded', () => {
           </button>
         </div><!-- /tl-stage -->
 
-        <!-- Linha do tempo — adicione um .tl-dot para cada slide, mesma ordem -->
+        <!-- Linha do tempo — scrubber estilo YouTube -->
         <div class="tl-timeline">
-          <div class="tl-dots" id="tl-jac-dots">
-            <div class="tl-dot active" onclick="tlManual('jac', 0)"><span>Abr 2026</span></div>
-            <div class="tl-dot"        onclick="tlManual('jac', 1)"><span>Mai 2026</span></div>
-            <div class="tl-dot"        onclick="tlManual('jac', 2)"><span>Jun 2026</span></div>
+          <div class="tl-scrubber" id="tl-jac-scrubber" data-id="jac">
+            <div class="tl-track-wrap">
+              <div class="tl-track">
+                <div class="tl-fill"></div>
+                <div class="tl-thumb"></div>
+              </div>
+            </div>
+            <div class="tl-labels">
+              <span>Abr 2026</span>
+              <span>Mai 2026</span>
+              <span>Jun 2026</span>
+            </div>
           </div>
         </div>
 
@@ -967,7 +976,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             <div class="tl-slide active">
               <div class="tl-foto">
-                <img src="img/pexels-mizunokozuki-12788376.jpg" alt="Andamento das obras — Abril 2026">
+                <img src="img/sucupiras/DJI_20260622154240_0001_V_QD+4+-+SUCUPIRA-01.jpeg" alt="Andamento das obras — Abril 2026">
               </div>
               <div class="tl-caption">
                 <span class="tl-mes">Abril 2026</span>
@@ -976,7 +985,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
             <div class="tl-slide">
               <div class="tl-foto">
-                <img src="img/pexels-robertkso-17747768.jpg" alt="Andamento das obras — Maio 2026">
+                <img src="img/sucupiras/DJI_20260622154250_0003_V.jpeg" alt="Andamento das obras — Maio 2026">
               </div>
               <div class="tl-caption">
                 <span class="tl-mes">Maio 2026</span>
@@ -985,7 +994,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
             <div class="tl-slide">
               <div class="tl-foto">
-                <img src="img/Aldeias_obras.webp" alt="Andamento das obras — Junho 2026">
+                <img src="img/sucupiras/DJI_20260622154342_0004_V_QD+4+-+SUCUPIRA-02.jpeg" alt="Andamento das obras — Junho 2026">
               </div>
               <div class="tl-caption">
                 <span class="tl-mes">Junho 2026</span>
@@ -1000,10 +1009,18 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
 
         <div class="tl-timeline">
-          <div class="tl-dots" id="tl-suc-dots">
-            <div class="tl-dot active" onclick="tlManual('suc', 0)"><span>Abr 2026</span></div>
-            <div class="tl-dot"        onclick="tlManual('suc', 1)"><span>Mai 2026</span></div>
-            <div class="tl-dot"        onclick="tlManual('suc', 2)"><span>Jun 2026</span></div>
+          <div class="tl-scrubber" id="tl-suc-scrubber" data-id="suc">
+            <div class="tl-track-wrap">
+              <div class="tl-track">
+                <div class="tl-fill"></div>
+                <div class="tl-thumb"></div>
+              </div>
+            </div>
+            <div class="tl-labels">
+              <span>Abr 2026</span>
+              <span>Mai 2026</span>
+              <span>Jun 2026</span>
+            </div>
           </div>
         </div>
 
@@ -1034,24 +1051,121 @@ const TL_INTERVAL = 4000;
 function tlGo(id, index) {
   const wrap   = document.getElementById('tl-' + id);
   const slides = wrap.querySelectorAll('.tl-slide');
-  const dots   = wrap.querySelectorAll('.tl-dot');
 
   slides[tlIndex[id] ?? 0].classList.remove('active');
-  dots[tlIndex[id]   ?? 0].classList.remove('active');
-
   tlIndex[id] = (index + slides.length) % slides.length;
-
   slides[tlIndex[id]].classList.add('active');
-  dots[tlIndex[id]].classList.add('active');
-  dots.forEach(d => d.setAttribute('aria-pressed', 'false'));
-  dots[tlIndex[id]].setAttribute('aria-pressed', 'true');
 
-  const dot = dots[tlIndex[id]];
-  const container = dot.closest('.tl-dots');
-  if (container) {
-    const offset = dot.offsetLeft - container.offsetWidth / 2 + dot.offsetWidth / 2;
-    container.scrollTo({ left: offset, behavior: 'smooth' });
+  updateScrubber(id, tlIndex[id]);
+}
+
+function updateScrubber(id, index) {
+  const s = document.getElementById('tl-' + id + '-scrubber');
+  if (!s) return;
+  const total  = document.querySelectorAll('#tl-' + id + ' .tl-slide').length;
+  const pct    = total > 1 ? (index / (total - 1)) * 100 : 0;
+  const fill   = s.querySelector('.tl-fill');
+  const thumb  = s.querySelector('.tl-thumb');
+  if (fill)  fill.style.width = pct + '%';
+  if (thumb) { thumb.style.left = pct + '%'; thumb.setAttribute('aria-valuenow', index); }
+  s.querySelectorAll('.tl-labels span').forEach((lbl, i) => lbl.classList.toggle('active', i === index));
+}
+
+function initScrubber(id) {
+  const s = document.getElementById('tl-' + id + '-scrubber');
+  if (!s) return;
+  const total = document.querySelectorAll('#tl-' + id + ' .tl-slide').length;
+  const track = s.querySelector('.tl-track');
+  const thumb = s.querySelector('.tl-thumb');
+
+  // posiciona os rótulos proporcionalmente
+  s.querySelectorAll('.tl-labels span').forEach((lbl, i) => {
+    const pct = total > 1 ? (i / (total - 1)) * 100 : 50;
+    lbl.style.left = pct + '%';
+    if (i === 0)           lbl.style.transform = 'translateX(0)';
+    else if (i === total - 1) lbl.style.transform = 'translateX(-100%)';
+    else                   lbl.style.transform = 'translateX(-50%)';
+  });
+
+  // estado inicial
+  updateScrubber(id, tlIndex[id] ?? 0);
+
+  // acessibilidade do thumb
+  thumb.setAttribute('tabindex', '0');
+  thumb.setAttribute('role', 'slider');
+  thumb.setAttribute('aria-label', 'Navegar entre registros');
+  thumb.setAttribute('aria-valuemin', '0');
+  thumb.setAttribute('aria-valuemax', String(total - 1));
+  thumb.setAttribute('aria-valuenow', '0');
+
+  // ── helpers ──────────────────────────────────────────────
+  function pctFromEvent(clientX) {
+    const r = track.getBoundingClientRect();
+    return Math.max(0, Math.min(1, (clientX - r.left) / r.width));
   }
+  function indexFrom(pct) { return Math.round(pct * (total - 1)); }
+  function applyVisual(pct) {
+    // trilha e thumb sem transição — seguem o cursor em tempo real
+    const fill = s.querySelector('.tl-fill');
+    fill.style.transition = 'none';
+    thumb.style.transition = 'none';
+    fill.style.width = (pct * 100) + '%';
+    thumb.style.left = (pct * 100) + '%';
+
+    const newIdx = indexFrom(pct);
+    s.querySelectorAll('.tl-labels span').forEach((lbl, i) => lbl.classList.toggle('active', i === newIdx));
+
+    // crossfade da imagem ao cruzar o meio-ponto entre slides
+    const curIdx = tlIndex[id] ?? 0;
+    if (newIdx !== curIdx) {
+      const wrap   = document.getElementById('tl-' + id);
+      const slides = wrap.querySelectorAll('.tl-slide');
+      slides[curIdx].classList.remove('active');
+      tlIndex[id] = newIdx;
+      slides[newIdx].classList.add('active');
+    }
+  }
+  function restoreTransitions() {
+    s.querySelector('.tl-fill').style.transition = '';
+    thumb.style.transition = '';
+  }
+
+  // ── click na track ────────────────────────────────────────
+  track.addEventListener('click', e => {
+    tlManual(id, indexFrom(pctFromEvent(e.clientX)));
+  });
+
+  // ── drag com mouse ────────────────────────────────────────
+  let dragging = false;
+  thumb.addEventListener('mousedown', e => { dragging = true; thumb.classList.add('dragging'); e.preventDefault(); });
+  document.addEventListener('mousemove', e => { if (dragging) applyVisual(pctFromEvent(e.clientX)); });
+  document.addEventListener('mouseup', e => {
+    if (!dragging) return;
+    dragging = false; thumb.classList.remove('dragging'); restoreTransitions();
+    tlManual(id, indexFrom(pctFromEvent(e.clientX)));
+  });
+
+  // ── drag com toque ────────────────────────────────────────
+  thumb.addEventListener('touchstart', () => { dragging = true; thumb.classList.add('dragging'); }, { passive: true });
+  document.addEventListener('touchmove', e => {
+    if (!dragging) return;
+    applyVisual(pctFromEvent(e.touches[0].clientX));
+  }, { passive: true });
+  document.addEventListener('touchend', e => {
+    if (!dragging) return;
+    dragging = false; thumb.classList.remove('dragging'); restoreTransitions();
+    const pct = parseFloat(thumb.style.left) / 100;
+    tlManual(id, indexFrom(pct));
+  });
+
+  // ── teclado ───────────────────────────────────────────────
+  thumb.addEventListener('keydown', e => {
+    const cur = tlIndex[id] ?? 0;
+    if (e.key === 'ArrowRight') { e.preventDefault(); tlManual(id, cur + 1); }
+    if (e.key === 'ArrowLeft')  { e.preventDefault(); tlManual(id, cur - 1); }
+    if (e.key === 'Home')       { e.preventDefault(); tlManual(id, 0); }
+    if (e.key === 'End')        { e.preventDefault(); tlManual(id, total - 1); }
+  });
 }
 
 // chamado pelos dots (índice absoluto)
@@ -1075,25 +1189,14 @@ function tlRestartTimer(id) {
   }, TL_INTERVAL);
 }
 
-// inicia autoplay e pausa no hover
+// inicia autoplay, scrubbers e pausa no hover
 document.addEventListener('DOMContentLoaded', () => {
   ['jac', 'suc'].forEach(id => {
     tlRestartTimer(id);
+    initScrubber(id);
     const el = document.getElementById('tl-' + id);
     el.addEventListener('mouseenter', () => clearInterval(tlTimers[id]));
     el.addEventListener('mouseleave', () => tlRestartTimer(id));
-  });
-
-  // Timeline dots: acesso por teclado
-  document.querySelectorAll('.tl-dot').forEach(dot => {
-    dot.setAttribute('tabindex', '0');
-    dot.setAttribute('role', 'button');
-    dot.setAttribute('aria-pressed', dot.classList.contains('active') ? 'true' : 'false');
-    const label = dot.querySelector('span')?.textContent?.trim();
-    if (label) dot.setAttribute('aria-label', label);
-    dot.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); dot.click(); }
-    });
   });
 
   // Obras-tabs: navegação com setas entre abas
@@ -1112,7 +1215,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // ── Carrossel Casa Padrão ──────────────────────────────────────────────────
 let casaIndex = 0;
-const CASA_CLASSES = ['prev-1', 'active', 'next-1', 'next-2'];
 
 function casaRender() {
   const slides = document.querySelectorAll('#casa-car .casa-slide');
@@ -1121,7 +1223,6 @@ function casaRender() {
   slides[(casaIndex + total - 1) % total].classList.add('prev-1');
   slides[casaIndex].classList.add('active');
   slides[(casaIndex + 1) % total].classList.add('next-1');
-  slides[(casaIndex + 2) % total].classList.add('next-2');
 }
 
 function casaNav(dir) {
