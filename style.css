@@ -1364,33 +1364,72 @@ p.lbl { font-size: 12px; color: var(--texto-medio); margin-top: 4px; text-transf
   background: rgba(255, 255, 255, 0.15);
   flex-shrink: 0;
 }
-.steps-grid {
+/* ── Como Comprar — jornada em etapas ─────────────────────── */
+.steps-journey {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  gap: 16px;
   margin-bottom: 32px;
-}
-.step-card {
-  background: var(--creme-50);
-  border: 1px solid var(--borda);
-  border-top: 3px solid var(--verde-400);
-  border-radius: var(--radius-lg);
-  padding: 28px 24px;
   position: relative;
-  display: flex;
-  flex-direction: column;
 }
-.step-card .step-num {
-  font-family: var(--serif);
-  font-size: 40px;
-  color: var(--verde-100);
-  line-height: 1;
-  display: block;
-  margin-bottom: 12px;
+.steps-journey::before {
+  content: '';
+  position: absolute;
+  top: 27px;
+  left: calc(12.5% + 6px);
+  right: calc(12.5% + 6px);
+  height: 2px;
+  background: linear-gradient(to right,
+    var(--verde-300) 0%,
+    var(--verde-500) 38%,
+    var(--verde-700) 68%,
+    var(--dourado-500) 100%);
+  z-index: 0;
 }
-.step-card i { font-size: 24px; color: var(--verde-500); margin-bottom: 12px; display: block; }
-.step-card h4 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: var(--verde-900); }
-.step-card p { font-size: 13px; color: var(--texto-medio); margin-bottom: 16px; flex: 1; }
+.sj-step { display: flex; flex-direction: column; align-items: center; position: relative; z-index: 1; }
+.sj-badge {
+  width: 54px; height: 54px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--serif); font-size: 19px; font-weight: 700;
+  color: #fff; margin-bottom: 18px; flex-shrink: 0;
+  border: 3px solid #f0ede6;
+  box-shadow: 0 3px 14px rgba(0,0,0,0.18);
+}
+.sj-step.s1 .sj-badge { background: var(--verde-300, #7cb99a); }
+.sj-step.s2 .sj-badge { background: var(--verde-500, #4a8a65); }
+.sj-step.s3 .sj-badge { background: var(--verde-700, #2d5a3d); }
+.sj-step.s4 .sj-badge { background: var(--dourado-500, #c9a227); }
+.sj-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 22px 18px 18px;
+  width: 100%;
+  display: flex; flex-direction: column;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+  border-top: 4px solid;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.sj-card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(0,0,0,0.13); }
+.sj-step.s1 .sj-card { border-color: var(--verde-300); }
+.sj-step.s2 .sj-card { border-color: var(--verde-500); }
+.sj-step.s3 .sj-card { border-color: var(--verde-700); }
+.sj-step.s4 .sj-card { border-color: var(--dourado-500); background: #fffdf0; }
+.sj-icon { font-size: 26px; margin-bottom: 10px; display: block; }
+.sj-step.s1 .sj-icon { color: var(--verde-400); }
+.sj-step.s2 .sj-icon { color: var(--verde-500); }
+.sj-step.s3 .sj-icon { color: var(--verde-700); }
+.sj-step.s4 .sj-icon { color: var(--dourado-500); }
+.sj-label {
+  font-size: 10.5px; font-weight: 700; letter-spacing: 1.2px;
+  text-transform: uppercase; margin-bottom: 5px; display: block;
+}
+.sj-step.s1 .sj-label { color: var(--verde-400); }
+.sj-step.s2 .sj-label { color: var(--verde-500); }
+.sj-step.s3 .sj-label { color: var(--verde-700); }
+.sj-step.s4 .sj-label { color: var(--dourado-600, #9a7a1a); }
+.sj-card h4 { font-size: 15px; font-weight: 700; color: var(--verde-900); margin-bottom: 8px; }
+.sj-card p  { font-size: 13px; color: var(--texto-medio); line-height: 1.65; flex: 1; margin-bottom: 14px; }
+.sj-step.s4 .link { color: var(--dourado-600, #9a7a1a); }
 .help-note {
   text-align: center;
   font-size: 13px;
@@ -1446,26 +1485,88 @@ p.lbl { font-size: 12px; color: var(--texto-medio); margin-top: 4px; text-transf
 .explora-panel { display: none; }
 .explora-panel.active { display: block; }
 .explora-panel.active { padding: 0; }
-.galeria-grid {
-  columns: 2;
-  column-gap: 3px;
-  gap: 3px;
-}
-.galeria-item {
-  break-inside: avoid;
-  margin-bottom: 3px;
-  overflow: hidden;
-  cursor: zoom-in;
+/* ---------- galeria carrossel ---------- */
+.galeria-carousel { position: relative; width: 100%; background: var(--verde-900); }
+.gc-stage {
   position: relative;
-}
-.galeria-destaque { break-inside: avoid; }
-.galeria-item img {
   width: 100%;
-  height: auto;
-  display: block;
-  transition: transform 0.55s cubic-bezier(.25,.46,.45,.94);
+  height: 60vh;
+  max-height: 680px;
+  min-height: 320px;
+  overflow: hidden;
+  background: #000;
 }
-.galeria-item:hover img { transform: scale(1.04); }
+.gc-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  z-index: 0;
+  cursor: zoom-in;
+  transition: opacity 0.7s ease;
+}
+.gc-slide.active { opacity: 1; z-index: 1; }
+.gc-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.gc-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  background: rgba(0,0,0,0.35);
+  border: none;
+  cursor: pointer;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  backdrop-filter: blur(4px);
+  transition: background 0.2s;
+}
+.gc-nav:hover { background: rgba(0,0,0,0.65); }
+.gc-nav.gc-prev { left: 20px; }
+.gc-nav.gc-next { right: 20px; }
+.gc-nav img { width: 22px; height: 22px; }
+.gc-counter {
+  position: absolute;
+  bottom: 14px;
+  right: 16px;
+  z-index: 20;
+  background: rgba(0,0,0,0.45);
+  color: #fff;
+  font-size: 12px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  backdrop-filter: blur(4px);
+  letter-spacing: 0.5px;
+  user-select: none;
+}
+.gc-dots {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 16px;
+}
+.gc-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.25);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.25s, transform 0.25s;
+}
+.gc-dot.active {
+  background: var(--dourado-400, #c9a227);
+  transform: scale(1.4);
+}
 .galeria-overlay {
   position: absolute;
   inset: 0;
@@ -1474,21 +1575,19 @@ p.lbl { font-size: 12px; color: var(--texto-medio); margin-top: 4px; text-transf
   align-items: center;
   justify-content: center;
   transition: background 0.3s ease;
+  opacity: 0;
 }
-.galeria-item:hover .galeria-overlay { background: rgba(5,15,5,0.3); }
+.gc-slide:hover .galeria-overlay { opacity: 1; background: rgba(5,15,5,0.3); }
 .galeria-zoom-icon {
-  width: 28px !important;
-  height: 28px !important;
+  width: 36px !important;
+  height: 36px !important;
   object-fit: contain;
   opacity: 0;
   transform: scale(0.7);
   transition: opacity 0.25s ease, transform 0.25s ease;
-  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.4));
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5));
 }
-.galeria-item:hover .galeria-zoom-icon {
-  opacity: 1;
-  transform: scale(1);
-}
+.gc-slide:hover .galeria-zoom-icon { opacity: 1; transform: scale(1); }
 
 /* ---------- google maps ---------- */
 .maps-section {
@@ -1680,7 +1779,8 @@ p.lbl { font-size: 12px; color: var(--texto-medio); margin-top: 4px; text-transf
    -------------------------------------------------------------------------  */
 @media (min-width: 1101px) and (max-width: 1360px) {
   nav.main-nav { gap: 16px; font-size: 12.5px; }
-  .steps-grid   { grid-template-columns: 1fr 1fr; }
+  .steps-journey { grid-template-columns: 1fr 1fr; }
+  .steps-journey::before { display: none; }
   .depo-grid    { grid-template-columns: 1fr 1fr; }
   .financ-num   { font-size: 42px; }
   .stat-item    { padding: 0 16px; }
@@ -1726,7 +1826,15 @@ p.lbl { font-size: 12px; color: var(--texto-medio); margin-top: 4px; text-transf
   nav.main-nav a:not(.btn).active { color: var(--dourado-300); }
   nav.main-nav .btn { margin-top: 16px; padding: 14px 32px; font-size: 15px; }
 
-  .grid-2, .grid-3, .client-cards, .footer-grid, .doc-grid, .res-layout, .res-meta, .steps-grid, .depo-grid { grid-template-columns: 1fr; }
+  .grid-2, .grid-3, .client-cards, .footer-grid, .doc-grid, .res-layout, .res-meta, .steps-journey, .depo-grid { grid-template-columns: 1fr; }
+  .steps-journey::before { display: none; }
+  .sj-step { flex-direction: row; align-items: flex-start; gap: 14px; }
+  .sj-badge { margin-bottom: 0; flex-shrink: 0; }
+  .sj-card { border-top: none; border-left: 4px solid; }
+  .sj-step.s1 .sj-card { border-color: var(--verde-300); }
+  .sj-step.s2 .sj-card { border-color: var(--verde-500); }
+  .sj-step.s3 .sj-card { border-color: var(--verde-700); }
+  .sj-step.s4 .sj-card { border-color: var(--dourado-500); }
   .lifestyle-block { grid-template-columns: 1fr; min-height: auto; gap: 12px; }
   .lifestyle-left { padding-right: 0; }
   .lifestyle-heading { font-size: clamp(34px, 8vw, 48px); }
@@ -1752,8 +1860,9 @@ p.lbl { font-size: 12px; color: var(--texto-medio); margin-top: 4px; text-transf
   .numero-item { padding: 16px 24px; }
   .form-row { grid-template-columns: 1fr; }
   .wrap { padding: 0 20px; }
-  .galeria-grid { columns: 2; column-gap: 2px; }
-  .galeria-item { margin-bottom: 2px; }
+  .gc-stage { height: 50vh; min-height: 260px; }
+  .gc-nav { width: 40px; height: 40px; }
+  .gc-nav img { width: 18px; height: 18px; }
   .lb-nav { width: 40px; height: 40px; font-size: 17px; }
   .maps-card { grid-template-columns: 1fr; }
   .maps-left { padding: 40px 24px; }
@@ -1770,11 +1879,100 @@ p.lbl { font-size: 12px; color: var(--texto-medio); margin-top: 4px; text-transf
 
   .tl-dot { padding-top: 24px; min-width: 60px; }
 
-  /* Galeria: coluna única em telas muito pequenas */
   @media (max-width: 480px) {
-    .galeria-grid { columns: 1; }
+    .gc-stage { height: 40vh; min-height: 220px; }
+    .gc-nav { width: 36px; height: 36px; }
   }
 }
+
+/* ===========================================================
+   CONVERSÃO — urgency bar, WhatsApp float, invest, FAQ
+   =========================================================== */
+
+/* ── Urgency bar ───────────────────────────────────────────── */
+.urgency-bar {
+  background: #1c3a1e;
+  color: #fff;
+  padding: 10px 48px 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 13px;
+  font-family: var(--sans);
+  position: relative;
+  z-index: 1001;
+  text-align: center;
+}
+.urgency-bar .ub-flame { color: #f59e0b; font-size: 15px; flex-shrink: 0; }
+.urgency-bar a { color: var(--dourado-300, #e6c06a); text-decoration: underline; white-space: nowrap; margin-left: 6px; }
+.urgency-bar a:hover { color: #fff; }
+.urgency-close {
+  position: absolute; right: 14px; top: 50%; transform: translateY(-50%);
+  background: none; border: none; color: rgba(255,255,255,0.45); cursor: pointer;
+  font-size: 20px; line-height: 1; padding: 4px; transition: color 0.2s;
+}
+.urgency-close:hover { color: #fff; }
+
+/* ── WhatsApp flutuante ────────────────────────────────────── */
+.whatsapp-float {
+  position: fixed; bottom: 28px; right: 24px; z-index: 990;
+  display: block; text-decoration: none;
+  box-shadow: 0 4px 22px rgba(37,211,102,0.45);
+  border-radius: 50%;
+  transition: transform 0.2s, box-shadow 0.2s;
+  line-height: 0;
+}
+.whatsapp-float img { width: 56px; height: 56px; object-fit: contain; display: block; border: none; }
+.whatsapp-float:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(37,211,102,0.55); }
+
+/* ── Investimento / valorização ────────────────────────────── */
+.invest-grid {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 40px;
+}
+.invest-card {
+  background: #fff; border-radius: 16px; padding: 32px 24px 28px;
+  text-align: center;
+  box-shadow: 0 2px 18px rgba(0,0,0,0.06);
+  border-bottom: 3px solid var(--verde-500, #4a7c59);
+  display: flex; flex-direction: column; align-items: center;
+}
+.invest-icon {
+  width: 58px; height: 58px; border-radius: 50%;
+  background: #edf5ee; display: flex; align-items: center; justify-content: center;
+  margin-bottom: 18px;
+}
+.invest-icon i { font-size: 26px; color: var(--verde-700, #2d5a3d); }
+.invest-num {
+  font-size: 34px; font-weight: 800; color: var(--verde-700);
+  font-family: var(--serif); line-height: 1; margin-bottom: 8px;
+}
+.invest-card h4 { font-size: 17px; font-weight: 700; color: var(--verde-900); margin-bottom: 10px; }
+.invest-card p { font-size: 14px; color: var(--texto-medio); line-height: 1.65; }
+@media (max-width: 768px) { .invest-grid { grid-template-columns: 1fr; max-width: 420px; margin-inline: auto; } }
+
+/* ── FAQ accordion ─────────────────────────────────────────── */
+.faq-list { max-width: 780px; margin: 0 auto; display: flex; flex-direction: column; gap: 8px; }
+.faq-item { border: 1px solid rgba(0,0,0,0.09); border-radius: 12px; overflow: hidden; background: #fff; }
+.faq-q {
+  width: 100%; text-align: left; background: none; border: none;
+  padding: 20px 56px 20px 24px; font-size: 15.5px; font-weight: 600;
+  color: var(--verde-900); cursor: pointer; position: relative; line-height: 1.4;
+  font-family: var(--sans); transition: color 0.2s;
+}
+.faq-q:hover { color: var(--verde-600, #3d6b4a); }
+.faq-q::after {
+  content: '+'; position: absolute; right: 22px; top: 50%; transform: translateY(-50%);
+  font-size: 24px; font-weight: 300; color: var(--verde-500); line-height: 1;
+  transition: transform 0.3s;
+}
+.faq-item.open .faq-q { color: var(--verde-700); }
+.faq-item.open .faq-q::after { content: '−'; }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.38s ease; }
+.faq-item.open .faq-a { max-height: 400px; }
+.faq-a-inner { padding: 0 24px 20px; }
+.faq-a-inner p { font-size: 14.5px; color: var(--texto-medio); line-height: 1.72; margin: 0; }
+.faq-a-inner a { color: var(--verde-600); text-decoration: underline; }
 
 /* ===========================================================
    ACESSIBILIDADE (A11Y) — skip link, foco, hamburger, motion
@@ -1852,6 +2050,16 @@ p.lbl { font-size: 12px; color: var(--texto-medio); margin-top: 4px; text-transf
 
 /* CTA do nav só aparece no overlay mobile */
 .nav-cta-mobile { display: none; }
+
+/* ── Carrossel residenciais: exibe setas ao receber foco ── */
+.res-carousel:focus-within .res-carousel-prev,
+.res-carousel:focus-within .res-carousel-next { opacity: 1; }
+
+/* ── Ponto ativo na linha do tempo com foco visível ────── */
+.tl-dot:focus-visible { outline-offset: 6px; }
+
+/* ── Slide ativo da galeria — cursor indica ativação ────── */
+.gc-slide[tabindex="0"]:focus-visible { outline-offset: -3px; }
 
 /* ── Reduced motion ───────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {

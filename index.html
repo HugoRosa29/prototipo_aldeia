@@ -11,6 +11,7 @@
 
 <a class="skip-link" href="#conteudo-principal">Pular para o conteúdo principal</a>
 
+
 <!-- TOPBAR -->
 <header class="topbar" role="banner">
   <div class="wrap">
@@ -21,7 +22,7 @@
     <nav class="main-nav" id="main-nav" aria-label="Menu principal">
       <a href="residenciais.html">Residenciais</a>
       <a href="index.html#obras">Obras</a>
-      <a href="index.html#tour">Localização</a>
+      <a href="index.html#localizacao">Localização</a>
       <a href="index.html#comocomprar">Como comprar</a>
       <a href="documentos.html">Documentos</a>
       <a href="index.html#contato">Contato</a>
@@ -53,12 +54,13 @@
     <span class="eyebrow on-dark">complexo condominial · brasília, df</span>
     <h1>Aldeias<br>do Cerrado</h1>
     <p class="sub">Um novo conceito de viver bem</p>
-<!--
+    <!--
     <div class="cta-row">
-      <a href="#comocomprar" class="btn btn-gold">Garantir meu lote</a>
-      <a href="#residenciais" class="btn btn-outline">Ver disponibilidade</a>
+      <a href="#contato" class="btn btn-gold">Quero garantir meu lote</a>
+      <a href="residenciais.html" class="btn btn-outline">Conhecer os residenciais</a>
     </div>
--->
+    -->
+    
     
     <p class="hero-financing">5% de entrada &nbsp;·&nbsp; até 240 meses &nbsp;·&nbsp; 0,2% ao mês</p>
   </div>
@@ -130,7 +132,7 @@
 </section>
 
 <!-- EXPLORE O EMPREENDIMENTO — galeria + tour 360° -->
-<section class="explora-section" id="localizacao">
+<section class="explora-section">
 
   <div class="wrap">
     <div class="explora-header">
@@ -155,62 +157,91 @@
 
   <!-- Painel: Galeria -->
   <div class="explora-panel active" id="explora-fotos" role="tabpanel" aria-labelledby="tab-fotos" tabindex="0">
-    <div class="galeria-grid" id="galeria-grid">
-      <div class="galeria-item galeria-destaque" onclick="lbOpen(0)">
-        <img src="img/jacarandas_3d/Aérea 1.jpg" alt="Vista aérea — Jacarandás" loading="lazy">
-        <div class="galeria-overlay"><img src="img/icones/ampliacao.png" alt="" class="galeria-zoom-icon"></div>
+    <div class="galeria-carousel" id="galeria-car">
+      <div class="gc-stage">
+
+        <div class="gc-slide active" onclick="lbOpen(0)">
+          <img src="img/jacarandas_3d/Aérea 1.jpg" alt="Vista aérea — Jacarandás" loading="lazy">
+          <div class="galeria-overlay"><img src="img/icones/ampliacao.png" alt="" class="galeria-zoom-icon"></div>
+        </div>
+        <div class="gc-slide" onclick="lbOpen(1)">
+          <img src="img/jacarandas_3d/Aérea 2.jpg" alt="Vista aérea — Jacarandás ponto 2" loading="lazy">
+          <div class="galeria-overlay"><img src="img/icones/ampliacao.png" alt="" class="galeria-zoom-icon"></div>
+        </div>
+        <div class="gc-slide" onclick="lbOpen(2)">
+          <img src="img/jacarandas_3d/Aérea 3.jpg" alt="Vista aérea — Jacarandás" loading="lazy">
+          <div class="galeria-overlay"><img src="img/icones/ampliacao.png" alt="" class="galeria-zoom-icon"></div>
+        </div>
+        <div class="gc-slide" onclick="lbOpen(3)">
+          <img src="img/sucupiras_3d/Aérea 2.jpg" alt="Sucupiras — Área de lazer" loading="lazy">
+          <div class="galeria-overlay"><img src="img/icones/ampliacao.png" alt="" class="galeria-zoom-icon"></div>
+        </div>
+        <div class="gc-slide" onclick="lbOpen(4)">
+          <img src="img/sucupiras_3d/Escada.jpg" alt="Sucupiras — Escada" loading="lazy">
+          <div class="galeria-overlay"><img src="img/icones/ampliacao.png" alt="" class="galeria-zoom-icon"></div>
+        </div>
+        <div class="gc-slide" onclick="lbOpen(5)">
+          <img src="img/sucupiras_3d/Pergolado.jpg" alt="Sucupiras — Pergolado" loading="lazy">
+          <div class="galeria-overlay"><img src="img/icones/ampliacao.png" alt="" class="galeria-zoom-icon"></div>
+        </div>
+        <div class="gc-slide" onclick="lbOpen(6)">
+          <img src="img/sucupiras_3d/Canteiro Manhã.jpg" alt="Sucupiras — Canteiro" loading="lazy">
+          <div class="galeria-overlay"><img src="img/icones/ampliacao.png" alt="" class="galeria-zoom-icon"></div>
+        </div>
+        <div class="gc-slide" onclick="lbOpen(7)">
+          <img src="img/sucupiras_3d/Entrada.jpg" alt="Sucupiras — Entrada" loading="lazy">
+          <div class="galeria-overlay"><img src="img/icones/ampliacao.png" alt="" class="galeria-zoom-icon"></div>
+        </div>
+        <div class="gc-slide" onclick="lbOpen(8)">
+          <img src="img/jacarandas_3d/Entrada.jpg" alt="Jacarandás — Entrada" loading="lazy">
+          <div class="galeria-overlay"><img src="img/icones/ampliacao.png" alt="" class="galeria-zoom-icon"></div>
+        </div>
+        <div class="gc-slide" onclick="lbOpen(9)">
+          <img src="img/jacarandas_3d/Escada Ilumninada.jpg" alt="Jacarandás — Escada iluminada" loading="lazy">
+          <div class="galeria-overlay"><img src="img/icones/ampliacao.png" alt="" class="galeria-zoom-icon"></div>
+        </div>
+        <div class="gc-slide" onclick="lbOpen(10)">
+          <img src="img/sucupiras/DJI_20260622154240_0001_V_QD+4+-+SUCUPIRA-01.jpeg" alt="Vista aérea — Sucupiras" loading="lazy">
+          <div class="galeria-overlay"><img src="img/icones/ampliacao.png" alt="" class="galeria-zoom-icon"></div>
+        </div>
+        <div class="gc-slide" onclick="lbOpen(11)">
+          <img src="img/sucupiras/DJI_20260622154250_0003_V.jpeg" alt="Vista aérea — Sucupiras" loading="lazy">
+          <div class="galeria-overlay"><img src="img/icones/ampliacao.png" alt="" class="galeria-zoom-icon"></div>
+        </div>
+        <div class="gc-slide" onclick="lbOpen(12)">
+          <img src="img/sucupiras/DJI_20260622154342_0004_V_QD+4+-+SUCUPIRA-02.jpeg" alt="Vista aérea — Sucupiras" loading="lazy">
+          <div class="galeria-overlay"><img src="img/icones/ampliacao.png" alt="" class="galeria-zoom-icon"></div>
+        </div>
+        <div class="gc-slide" onclick="lbOpen(13)">
+          <img src="img/sucupiras/DJI_20260622154349_0005_V.jpeg" alt="Vista aérea — Sucupiras" loading="lazy">
+          <div class="galeria-overlay"><img src="img/icones/ampliacao.png" alt="" class="galeria-zoom-icon"></div>
+        </div>
+
+        <button class="gc-nav gc-prev" type="button" aria-label="Foto anterior" onclick="gcNav(-1)">
+          <img src="img/icones/seta-esquerda.png" alt="">
+        </button>
+        <button class="gc-nav gc-next" type="button" aria-label="Próxima foto" onclick="gcNav(1)">
+          <img src="img/icones/seta-direita.png" alt="">
+        </button>
+
+        <div class="gc-counter" id="gc-counter" aria-live="polite" aria-atomic="true">1 / 14</div>
       </div>
-      <div class="galeria-item" onclick="lbOpen(1)">
-        <img src="img/jacarandas_3d/Aérea 2.jpg" alt="Vista aérea — Jacarandás ponto 2" loading="lazy">
-        <div class="galeria-overlay"><img src="img/icones/ampliacao.png" alt="" class="galeria-zoom-icon"></div>
-      </div>
-      <div class="galeria-item" onclick="lbOpen(2)">
-        <img src="img/jacarandas_3d/Aérea 3.jpg" alt="Vista aérea — Jacarandás" loading="lazy">
-        <div class="galeria-overlay"><img src="img/icones/ampliacao.png" alt="" class="galeria-zoom-icon"></div>
-      </div>
-      <div class="galeria-item" onclick="lbOpen(3)">
-        <img src="img/sucupiras_3d/Aérea 2.jpg" alt="Jacarandás — Área de lazer" loading="lazy">
-        <div class="galeria-overlay"><img src="img/icones/ampliacao.png" alt="" class="galeria-zoom-icon"></div>
-      </div>
-      <div class="galeria-item" onclick="lbOpen(4)">
-        <img src="img/sucupiras_3d/Escada.jpg" alt="Vista aérea — Aldeias do Cerrado" loading="lazy">
-        <div class="galeria-overlay"><img src="img/icones/ampliacao.png" alt="" class="galeria-zoom-icon"></div>
-      </div>
-      <div class="galeria-item" onclick="lbOpen(5)">
-        <img src="img/sucupiras_3d/Pergolado.jpg" alt="Aldeias do Cerrado" loading="lazy">
-        <div class="galeria-overlay"><img src="img/icones/ampliacao.png" alt="" class="galeria-zoom-icon"></div>
-      </div>
-      <div class="galeria-item" onclick="lbOpen(6)">
-        <img src="img/sucupiras_3d/Canteiro Manhã.jpg" alt="Aldeias do Cerrado" loading="lazy">
-        <div class="galeria-overlay"><img src="img/icones/ampliacao.png" alt="" class="galeria-zoom-icon"></div>
-      </div>
-      <div class="galeria-item" onclick="lbOpen(7)">
-        <img src="img/sucupiras_3d/Entrada.jpg" alt="Modelo de Casa Padrão" loading="lazy">
-        <div class="galeria-overlay"><img src="img/icones/ampliacao.png" alt="" class="galeria-zoom-icon"></div>
-      </div>
-      <div class="galeria-item" onclick="lbOpen(8)">
-        <img src="img/jacarandas_3d/Entrada.jpg" alt="Modelo de Casa Padrão" loading="lazy">
-        <div class="galeria-overlay"><img src="img/icones/ampliacao.png" alt="" class="galeria-zoom-icon"></div>
-      </div>
-      <div class="galeria-item" onclick="lbOpen(9)">
-        <img src="img/jacarandas_3d/Escada Ilumninada.jpg" alt="Modelo de Casa Padrão" loading="lazy">
-        <div class="galeria-overlay"><img src="img/icones/ampliacao.png" alt="" class="galeria-zoom-icon"></div>
-      </div>
-      <div class="galeria-item" onclick="lbOpen(13)">
-        <img src="img/sucupiras/DJI_20260622154240_0001_V_QD+4+-+SUCUPIRA-01.jpeg" alt="Vista aérea — Sucupiras" loading="lazy">
-        <div class="galeria-overlay"><img src="img/icones/ampliacao.png" alt="" class="galeria-zoom-icon"></div>
-      </div>
-      <div class="galeria-item" onclick="lbOpen(14)">
-        <img src="img/sucupiras/DJI_20260622154250_0003_V.jpeg" alt="Vista aérea — Sucupiras" loading="lazy">
-        <div class="galeria-overlay"><img src="img/icones/ampliacao.png" alt="" class="galeria-zoom-icon"></div>
-      </div>
-      <div class="galeria-item" onclick="lbOpen(15)">
-        <img src="img/sucupiras/DJI_20260622154342_0004_V_QD+4+-+SUCUPIRA-02.jpeg" alt="Vista aérea — Sucupiras" loading="lazy">
-        <div class="galeria-overlay"><img src="img/icones/ampliacao.png" alt="" class="galeria-zoom-icon"></div>
-      </div>
-      <div class="galeria-item" onclick="lbOpen(16)">
-        <img src="img/sucupiras/DJI_20260622154349_0005_V.jpeg" alt="Vista aérea — Sucupiras" loading="lazy">
-        <div class="galeria-overlay"><img src="img/icones/ampliacao.png" alt="" class="galeria-zoom-icon"></div>
+
+      <div class="gc-dots" id="gc-dots" role="tablist" aria-label="Navegar entre fotos">
+        <button class="gc-dot active" onclick="gcGo(0)" role="tab" aria-selected="true"  aria-label="Foto 1 de 14"></button>
+        <button class="gc-dot"        onclick="gcGo(1)" role="tab" aria-selected="false" aria-label="Foto 2 de 14"></button>
+        <button class="gc-dot"        onclick="gcGo(2)" role="tab" aria-selected="false" aria-label="Foto 3 de 14"></button>
+        <button class="gc-dot"        onclick="gcGo(3)" role="tab" aria-selected="false" aria-label="Foto 4 de 14"></button>
+        <button class="gc-dot"        onclick="gcGo(4)" role="tab" aria-selected="false" aria-label="Foto 5 de 14"></button>
+        <button class="gc-dot"        onclick="gcGo(5)" role="tab" aria-selected="false" aria-label="Foto 6 de 14"></button>
+        <button class="gc-dot"        onclick="gcGo(6)" role="tab" aria-selected="false" aria-label="Foto 7 de 14"></button>
+        <button class="gc-dot"        onclick="gcGo(7)" role="tab" aria-selected="false" aria-label="Foto 8 de 14"></button>
+        <button class="gc-dot"        onclick="gcGo(8)" role="tab" aria-selected="false" aria-label="Foto 9 de 14"></button>
+        <button class="gc-dot"        onclick="gcGo(9)" role="tab" aria-selected="false" aria-label="Foto 10 de 14"></button>
+        <button class="gc-dot"        onclick="gcGo(10)" role="tab" aria-selected="false" aria-label="Foto 11 de 14"></button>
+        <button class="gc-dot"        onclick="gcGo(11)" role="tab" aria-selected="false" aria-label="Foto 12 de 14"></button>
+        <button class="gc-dot"        onclick="gcGo(12)" role="tab" aria-selected="false" aria-label="Foto 13 de 14"></button>
+        <button class="gc-dot"        onclick="gcGo(13)" role="tab" aria-selected="false" aria-label="Foto 14 de 14"></button>
       </div>
     </div>
   </div>
@@ -272,7 +303,7 @@
 </section>
 
 <!-- MAPA GOOGLE MAPS -->
-<section class="maps-section">
+<section class="maps-section" id="localizacao">
   <div class="wrap">
     <div class="maps-card">
       <div class="maps-left">
@@ -466,6 +497,100 @@ document.addEventListener('keydown', e => {
 
 // Oculto de AT por padrão
 document.getElementById('lightbox').setAttribute('aria-hidden', 'true');
+
+// ── Carrossel Galeria ──────────────────────────────────────────────────
+let gcIndex = 0;
+let gcTimer = null;
+const GC_INTERVAL = 4500;
+
+function gcGo(index) {
+  const slides = document.querySelectorAll('#galeria-car .gc-slide');
+  const dots   = document.querySelectorAll('#gc-dots .gc-dot');
+  const total  = slides.length;
+
+  slides[gcIndex].classList.remove('active');
+  dots[gcIndex].classList.remove('active');
+  dots[gcIndex].setAttribute('aria-selected', 'false');
+
+  gcIndex = (index + total) % total;
+
+  slides[gcIndex].classList.add('active');
+  dots[gcIndex].classList.add('active');
+  dots[gcIndex].setAttribute('aria-selected', 'true');
+  slides.forEach((s, i) => s.setAttribute('tabindex', i === gcIndex ? '0' : '-1'));
+
+  const counter = document.getElementById('gc-counter');
+  if (counter) counter.textContent = (gcIndex + 1) + ' / ' + total;
+}
+
+function gcNav(dir) {
+  const total = document.querySelectorAll('#galeria-car .gc-slide').length;
+  gcGo((gcIndex + dir + total) % total);
+  gcRestartTimer();
+}
+
+function gcRestartTimer() {
+  clearInterval(gcTimer);
+  gcTimer = setInterval(() => {
+    const total = document.querySelectorAll('#galeria-car .gc-slide').length;
+    gcGo((gcIndex + 1) % total);
+  }, GC_INTERVAL);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  gcRestartTimer();
+  const el = document.getElementById('galeria-car');
+  if (!el) return;
+  el.addEventListener('mouseenter', () => clearInterval(gcTimer));
+  el.addEventListener('mouseleave', () => gcRestartTimer());
+
+  // Pausa autoplay ao receber foco via teclado
+  el.addEventListener('focusin',  () => clearInterval(gcTimer));
+  el.addEventListener('focusout', e => { if (!el.contains(e.relatedTarget)) gcRestartTimer(); });
+
+  // Slides da galeria: acesso por teclado
+  document.querySelectorAll('#galeria-car .gc-slide').forEach((slide, i) => {
+    slide.setAttribute('role', 'button');
+    slide.setAttribute('tabindex', i === 0 ? '0' : '-1');
+    const img = slide.querySelector('img:not(.galeria-zoom-icon)');
+    if (img) slide.setAttribute('aria-label', 'Ampliar: ' + img.alt);
+    slide.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        lbOpen(i);
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        gcNav(-1);
+        requestAnimationFrame(() => document.querySelector('#galeria-car .gc-slide.active')?.focus());
+      } else if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        gcNav(1);
+        requestAnimationFrame(() => document.querySelector('#galeria-car .gc-slide.active')?.focus());
+      }
+    });
+  });
+
+  // Explora-tabs: navegação com setas entre abas
+  const exploraTabs = Array.from(document.querySelectorAll('.explora-tab'));
+  exploraTabs.forEach((tab, i) => {
+    tab.addEventListener('keydown', e => {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+        e.preventDefault();
+        const next = (i + (e.key === 'ArrowRight' ? 1 : -1) + exploraTabs.length) % exploraTabs.length;
+        exploraTabs[next].focus();
+        exploraTabs[next].click();
+      }
+    });
+  });
+
+  // Swipe mobile
+  let touchX = 0;
+  el.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, { passive: true });
+  el.addEventListener('touchend',   e => {
+    const dx = touchX - e.changedTouches[0].clientX;
+    if (Math.abs(dx) > 40) gcNav(dx > 0 ? 1 : -1);
+  }, { passive: true });
+});
 </script>
 
 <!-- DEPOIMENTOS -->
@@ -577,7 +702,7 @@ document.getElementById('lightbox').setAttribute('aria-hidden', 'true');
   <div class="wrap">
     <div class="center" style="max-width:600px; margin-bottom:48px;">
       <span class="eyebrow">aquisição</span>
-      <h2 class="section-title">Como comprar</h2>
+      <h2 class="section-title">Faça parte do Aldeias</h2>
       <p class="lede center">Processo transparente e facilitado, com condições especiais para adquirir seu lote diretamente com a Terracap.</p>
     </div>
 
@@ -601,35 +726,52 @@ document.getElementById('lightbox').setAttribute('aria-hidden', 'true');
         </div>
     
         <!-- Etapas -->
-        <div class="steps-grid">
-          <div class="step-card">
-            <span class="step-num">01</span>
-            <i class="ti ti-search"></i>
-            <h4>Consulte os editais</h4>
-            <p>Acesse o portal de compras online da Terracap e confira os lotes disponíveis no Aldeias do Cerrado, com plantas e condições detalhadas.</p>
-            <a href="https://comprasonline.terracap.df.gov.br/" class="link" target="_blank" rel="noopener">Acessar portal →</a>
+        <div class="steps-journey">
+
+          <div class="sj-step s1">
+            <div class="sj-badge" aria-hidden="true">01</div>
+            <div class="sj-card">
+              <i class="ti ti-search sj-icon" aria-hidden="true"></i>
+              <span class="sj-label">etapa 1</span>
+              <h4>Consulte os editais</h4>
+              <p>Acesse o portal de compras online da Terracap e confira os lotes disponíveis no Aldeias do Cerrado, com plantas e condições detalhadas.</p>
+              <a href="https://comprasonline.terracap.df.gov.br/" class="link" target="_blank" rel="noopener">Acessar portal →</a>
+            </div>
           </div>
-          <div class="step-card">
-            <span class="step-num">02</span>
-            <i class="ti ti-gavel"></i>
-            <h4>Participe da licitação</h4>
-            <p>As aquisições ocorrem por licitação pública online ou leilão presencial. Solicite inclusão nos próximos editais pelo canal GEATE da Terracap.</p>
-            <a href="https://servicosonline.terracap.df.gov.br/" class="link" target="_blank" rel="noopener">Serviços online →</a>
+
+          <div class="sj-step s2">
+            <div class="sj-badge" aria-hidden="true">02</div>
+            <div class="sj-card">
+              <i class="ti ti-gavel sj-icon" aria-hidden="true"></i>
+              <span class="sj-label">etapa 2</span>
+              <h4>Participe da licitação</h4>
+              <p>As aquisições ocorrem por licitação pública online ou leilão presencial. Solicite inclusão nos próximos editais pelo canal GEATE da Terracap.</p>
+              <a href="https://servicosonline.terracap.df.gov.br/" class="link" target="_blank" rel="noopener">Serviços online →</a>
+            </div>
           </div>
-          <div class="step-card">
-            <span class="step-num">03</span>
-            <i class="ti ti-file-certificate"></i>
-            <h4>Assine o contrato</h4>
-            <p>Com a proposta aprovada, assine o contrato com a Terracap e obtenha toda a documentação do imóvel de forma segura e regularizada.</p>
-            <a href="documentos.html" class="link">Ver documentação →</a>
+
+          <div class="sj-step s3">
+            <div class="sj-badge" aria-hidden="true">03</div>
+            <div class="sj-card">
+              <i class="ti ti-file-certificate sj-icon" aria-hidden="true"></i>
+              <span class="sj-label">etapa 3</span>
+              <h4>Assine o contrato</h4>
+              <p>Com a proposta aprovada, assine o contrato com a Terracap e obtenha toda a documentação do imóvel de forma segura e regularizada.</p>
+              <a href="documentos.html" class="link">Ver documentação →</a>
+            </div>
           </div>
-          <div class="step-card">
-            <span class="step-num">04</span>
-            <i class="ti ti-home-check"></i>
-            <h4>Construa seu lar</h4>
-            <p>Seu lote conta com projeto de casa padrão pré-aprovado de 153 m² — 3 quartos, suíte, garagem — para agilizar sua construção.</p>
-            <a href="residenciais.html" class="link">Ver residenciais →</a>
+
+          <div class="sj-step s4">
+            <div class="sj-badge" aria-hidden="true">04</div>
+            <div class="sj-card">
+              <i class="ti ti-home-check sj-icon" aria-hidden="true"></i>
+              <span class="sj-label">sua conquista</span>
+              <h4>Construa seu lar</h4>
+              <p>Seu lote conta com projeto de casa padrão pré-aprovado de 153 m² — 3 quartos, suíte, garagem — para agilizar sua construção.</p>
+              <a href="residenciais.html" class="link">Ver residenciais →</a>
+            </div>
           </div>
+
         </div>
     
         <p class="help-note"><i class="ti ti-info-circle"></i> Dúvidas? Ligue <b>(61) 3350-2222</b> · Seg–Sex, 7h–19h · ou acesse a <a href="#contato">central de atendimento</a>.</p>
@@ -896,6 +1038,8 @@ function tlGo(id, index) {
 
   slides[tlIndex[id]].classList.add('active');
   dots[tlIndex[id]].classList.add('active');
+  dots.forEach(d => d.setAttribute('aria-pressed', 'false'));
+  dots[tlIndex[id]].setAttribute('aria-pressed', 'true');
 
   const dot = dots[tlIndex[id]];
   const container = dot.closest('.tl-dots');
@@ -933,6 +1077,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const el = document.getElementById('tl-' + id);
     el.addEventListener('mouseenter', () => clearInterval(tlTimers[id]));
     el.addEventListener('mouseleave', () => tlRestartTimer(id));
+  });
+
+  // Timeline dots: acesso por teclado
+  document.querySelectorAll('.tl-dot').forEach(dot => {
+    dot.setAttribute('tabindex', '0');
+    dot.setAttribute('role', 'button');
+    dot.setAttribute('aria-pressed', dot.classList.contains('active') ? 'true' : 'false');
+    const label = dot.querySelector('span')?.textContent?.trim();
+    if (label) dot.setAttribute('aria-label', label);
+    dot.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); dot.click(); }
+    });
+  });
+
+  // Obras-tabs: navegação com setas entre abas
+  const obrasTabs = Array.from(document.querySelectorAll('.obras-tab'));
+  obrasTabs.forEach((tab, i) => {
+    tab.addEventListener('keydown', e => {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+        e.preventDefault();
+        const next = (i + (e.key === 'ArrowRight' ? 1 : -1) + obrasTabs.length) % obrasTabs.length;
+        obrasTabs[next].focus();
+        obrasTabs[next].click();
+      }
+    });
   });
 });
 
@@ -989,9 +1158,9 @@ document.addEventListener('DOMContentLoaded', casaRender);
 <!-- CONTATO -->
 <section class="section bg-cream" id="contato">
   <div class="wrap">
-    <span class="eyebrow">atendimento</span>
-    <h2 class="section-title">Contato e atendimento</h2>
-    <p class="lede" style="margin-bottom:36px;">Nossa equipe está pronta para tirar todas as suas dúvidas sobre os residenciais, condições de compra e andamento das obras.</p>
+    <span class="eyebrow">fale com a equipe</span>
+    <h2 class="section-title">Garanta seu lote hoje</h2>
+    <p class="lede" style="margin-bottom:36px;">Preencha o formulário e um especialista entrará em contato em até <strong>1 hora</strong> para esclarecer suas dúvidas e ajudar com as próximas etapas.</p>
     <div class="grid-2">
       <ul class="contact-list">
         <li>
@@ -1032,7 +1201,7 @@ document.addEventListener('DOMContentLoaded', casaRender);
           </select>
         </div>
         <div id="form-feedback" role="alert" aria-live="polite" style="display:none; font-size:13px; padding:10px; border-radius:6px; margin-bottom:12px;"></div>
-        <button type="submit" class="btn btn-green" style="width:100%;">Quero ser contactado</button>
+        <button type="submit" class="btn btn-green" style="width:100%; font-size:16px; padding:16px;">Quero garantir meu lote →</button>
         <p style="font-size:11px; color:var(--verde-400); text-align:center; margin-top:10px;">
           Campos com <span aria-hidden="true">*</span><span class="sr-only">asterisco</span> são obrigatórios
           &nbsp;·&nbsp; Retorno em até 1 hora &nbsp;·&nbsp; Seg–Sex, 7h–19h
@@ -1041,6 +1210,12 @@ document.addEventListener('DOMContentLoaded', casaRender);
     </div>
   </div>
 </section>
+
+<!-- WHATSAPP FLUTUANTE -->
+<!-- Substitua o número abaixo pelo WhatsApp de vendas real: wa.me/55DDD9XXXXXXXX -->
+<a class="whatsapp-float" href="https://wa.me/5561933502222?text=Ol%C3%A1!%20Tenho%20interesse%20em%20conhecer%20os%20lotes%20do%20Aldeias%20do%20Cerrado." target="_blank" rel="noopener" aria-label="Conversar pelo WhatsApp">
+  <img src="img/icones/whatsapp.png" alt="">
+</a>
 
 <!-- FOOTER -->
 </main>
@@ -1110,6 +1285,27 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Escape' && mainNav.classList.contains('open')) {
       closeNav();
       navToggle.focus();
+    }
+  });
+});
+
+// ── FAQ accordion ─────────────────────────────────────────────────────
+document.querySelectorAll('.faq-item').forEach((item, i) => {
+  const btn  = item.querySelector('.faq-q');
+  const body = item.querySelector('.faq-a');
+  const id   = 'faq-panel-' + i;
+  body.id = id;
+  btn.setAttribute('aria-expanded', 'false');
+  btn.setAttribute('aria-controls', id);
+  btn.addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(openItem => {
+      openItem.classList.remove('open');
+      openItem.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
     }
   });
 });

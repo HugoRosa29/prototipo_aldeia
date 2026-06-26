@@ -22,6 +22,7 @@
       <a href="residenciais.html">Residenciais</a>
       <a href="index.html#obras">Obras</a>
       <a href="index.html#tour">Localização</a>
+      <a href="index.html#comocomprar">Como comprar</a>
       <a href="documentos.html" aria-current="page">Documentos</a>
       <a href="index.html#contato">Contato</a>
       <a href="#area-cliente" class="btn btn-gold nav-cta-mobile">Área do cliente</a>
@@ -56,14 +57,14 @@
 <!-- DOCUMENTOS COM ABAS -->
 <section class="section bg-cream">
   <div class="wrap">
-    <div class="tabs">
-      <button class="tab-btn active" data-tab="editais">Editais e licitações</button>
-      <button class="tab-btn" data-tab="plantas">Projetos e plantas</button>
-      <button class="tab-btn" data-tab="relatorios">Relatórios de obras</button>
-      <button class="tab-btn" data-tab="juridicos">Documentos jurídicos</button>
+    <div class="tabs" role="tablist" aria-label="Categorias de documentos">
+      <button class="tab-btn active" data-tab="editais"   role="tab" id="tab-editais"   aria-selected="true"  aria-controls="editais">Editais e licitações</button>
+      <button class="tab-btn"        data-tab="plantas"   role="tab" id="tab-plantas"   aria-selected="false" aria-controls="plantas">Projetos e plantas</button>
+      <button class="tab-btn"        data-tab="relatorios" role="tab" id="tab-relatorios" aria-selected="false" aria-controls="relatorios">Relatórios de obras</button>
+      <button class="tab-btn"        data-tab="juridicos" role="tab" id="tab-juridicos" aria-selected="false" aria-controls="juridicos">Documentos jurídicos</button>
     </div>
 
-    <div class="tab-panel active" id="editais">
+    <div class="tab-panel active" id="editais" role="tabpanel" aria-labelledby="tab-editais" tabindex="0">
       <div class="doc-grid">
         <div class="doc-card"><i class="ti ti-file-text"></i><div><b>Edital de Licitação — Infraestrutura Jacarandás</b><span>PDF · 2.4 MB · publicado jan/2026</span></div></div>
         <div class="doc-card"><i class="ti ti-file-text"></i><div><b>Edital de Licitação — Infraestrutura Sucupiras</b><span>PDF · 1.8 MB · publicado jan/2026</span></div></div>
@@ -74,7 +75,7 @@
       </div>
     </div>
 
-    <div class="tab-panel" id="plantas">
+    <div class="tab-panel" id="plantas" role="tabpanel" aria-labelledby="tab-plantas" tabindex="-1">
       <div class="doc-grid">
         <div class="doc-card"><i class="ti ti-map-2"></i><div><b>Planta de Implantação Geral</b><span>PDF · 4.2 MB</span></div></div>
         <div class="doc-card"><i class="ti ti-map-2"></i><div><b>Implantação — Jacarandás</b><span>PDF · 2.1 MB</span></div></div>
@@ -83,7 +84,7 @@
       </div>
     </div>
 
-    <div class="tab-panel" id="relatorios">
+    <div class="tab-panel" id="relatorios" role="tabpanel" aria-labelledby="tab-relatorios" tabindex="-1">
       <div class="doc-grid">
         <div class="doc-card"><i class="ti ti-report"></i><div><b>Relatório Mensal de Obras — Maio 2026</b><span>PDF · 3.4 MB</span></div></div>
         <div class="doc-card"><i class="ti ti-report"></i><div><b>Relatório Mensal de Obras — Abril 2026</b><span>PDF · 3.1 MB</span></div></div>
@@ -91,7 +92,7 @@
       </div>
     </div>
 
-    <div class="tab-panel" id="juridicos">
+    <div class="tab-panel" id="juridicos" role="tabpanel" aria-labelledby="tab-juridicos" tabindex="-1">
       <div class="doc-grid">
         <div class="doc-card"><i class="ti ti-gavel"></i><div><b>Certidão de Regularização Fundiária</b><span>PDF · 0.6 MB</span></div></div>
         <div class="doc-card"><i class="ti ti-gavel"></i><div><b>Licença Ambiental</b><span>PDF · 1.1 MB</span></div></div>
@@ -126,19 +127,19 @@
 
     <div class="form-card" style="margin-top:32px; max-width:480px; margin-left:auto; margin-right:auto;">
       <p style="font-family:var(--serif); font-size:17px; color:var(--verde-700); margin-bottom:18px;">Solicite atendimento</p>
-      <div class="field"><label>Seu nome</label><input type="text" placeholder="Nome completo"></div>
-      <div class="field"><label>Seu e-mail</label><input type="email" placeholder="seu@email.com"></div>
+      <div class="field"><label for="doc-nome">Seu nome</label><input type="text" id="doc-nome" name="nome" placeholder="Nome completo" autocomplete="name"></div>
+      <div class="field"><label for="doc-email">Seu e-mail</label><input type="email" id="doc-email" name="email" placeholder="seu@email.com" autocomplete="email"></div>
       <div class="field">
-        <label>Assunto</label>
-        <select>
-          <option>Selecione um assunto</option>
-          <option>Sou proprietário</option>
-          <option>Tenho interesse em comprar</option>
-          <option>Dúvida sobre documentação</option>
+        <label for="doc-assunto">Assunto</label>
+        <select id="doc-assunto" name="assunto">
+          <option value="">Selecione um assunto</option>
+          <option value="proprietario">Sou proprietário</option>
+          <option value="interesse">Tenho interesse em comprar</option>
+          <option value="documentacao">Dúvida sobre documentação</option>
         </select>
       </div>
-      <div class="field"><label>Sua mensagem</label><textarea placeholder="Como podemos ajudar?"></textarea></div>
-      <button class="btn btn-gold" style="width:100%;">Enviar mensagem</button>
+      <div class="field"><label for="doc-mensagem">Sua mensagem</label><textarea id="doc-mensagem" name="mensagem" placeholder="Como podemos ajudar?"></textarea></div>
+      <button class="btn btn-gold" style="width:100%;" type="button">Enviar mensagem</button>
     </div>
   </div>
 </section>
@@ -177,16 +178,34 @@
 </main>
 
 <script>
-document.querySelectorAll('.tab-btn').forEach(function(btn) {
+var docTabs = Array.from(document.querySelectorAll('.tab-btn'));
+docTabs.forEach(function(btn, i) {
   btn.addEventListener('click', function() {
-    document.querySelectorAll('.tab-btn').forEach(function(b) {
+    docTabs.forEach(function(b) {
       b.classList.remove('active');
       b.setAttribute('aria-selected', 'false');
     });
-    document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
+    document.querySelectorAll('.tab-panel').forEach(function(p) {
+      p.classList.remove('active');
+      p.setAttribute('tabindex', '-1');
+    });
     btn.classList.add('active');
     btn.setAttribute('aria-selected', 'true');
-    document.getElementById(btn.dataset.tab).classList.add('active');
+    var panel = document.getElementById(btn.dataset.tab);
+    panel.classList.add('active');
+    panel.setAttribute('tabindex', '0');
+  });
+
+  // Navegação com setas entre abas (padrão ARIA tablist)
+  btn.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+      e.preventDefault();
+      var next = (i + (e.key === 'ArrowRight' ? 1 : -1) + docTabs.length) % docTabs.length;
+      docTabs[next].focus();
+      docTabs[next].click();
+    }
+    if (e.key === 'Home') { e.preventDefault(); docTabs[0].focus(); docTabs[0].click(); }
+    if (e.key === 'End')  { e.preventDefault(); docTabs[docTabs.length - 1].focus(); docTabs[docTabs.length - 1].click(); }
   });
 });
 

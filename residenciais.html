@@ -22,6 +22,7 @@
       <a href="residenciais.html" aria-current="page">Residenciais</a>
       <a href="index.html#obras">Obras</a>
       <a href="index.html#tour">Localização</a>
+      <a href="index.html#comocomprar">Como comprar</a>
       <a href="documentos.html">Documentos</a>
       <a href="index.html#contato">Contato</a>
       <a href="documentos.html#area-cliente" class="btn btn-gold nav-cta-mobile">Área do cliente</a>
@@ -67,10 +68,10 @@
         <button class="res-carousel-prev" onclick="carouselNav('jac',-1)" aria-label="Anterior"><img src="img/icones/seta-esquerda.png" alt=""></button>
         <button class="res-carousel-next" onclick="carouselNav('jac', 1)" aria-label="Próximo"><img src="img/icones/seta-direita.png" alt=""></button>
         <div class="res-carousel-dots">
-          <button class="res-dot active" onclick="carouselGo('jac',0)"></button>
-          <button class="res-dot" onclick="carouselGo('jac',1)"></button>
-          <button class="res-dot" onclick="carouselGo('jac',2)"></button>
-          <button class="res-dot" onclick="carouselGo('jac',3)"></button>
+          <button class="res-dot active" onclick="carouselGo('jac',0)" aria-label="Foto 1 de 4" aria-pressed="true"></button>
+          <button class="res-dot" onclick="carouselGo('jac',1)" aria-label="Foto 2 de 4" aria-pressed="false"></button>
+          <button class="res-dot" onclick="carouselGo('jac',2)" aria-label="Foto 3 de 4" aria-pressed="false"></button>
+          <button class="res-dot" onclick="carouselGo('jac',3)" aria-label="Foto 4 de 4" aria-pressed="false"></button>
         </div>
       </div>
       <div>
@@ -139,10 +140,10 @@
         <button class="res-carousel-prev" onclick="carouselNav('suc',-1)" aria-label="Anterior"><img src="img/icones/seta-esquerda.png" alt=""></button>
         <button class="res-carousel-next" onclick="carouselNav('suc', 1)" aria-label="Próximo"><img src="img/icones/seta-direita.png" alt=""></button>
         <div class="res-carousel-dots">
-          <button class="res-dot active" onclick="carouselGo('suc',0)"></button>
-          <button class="res-dot" onclick="carouselGo('suc',1)"></button>
-          <button class="res-dot" onclick="carouselGo('suc',2)"></button>
-          <button class="res-dot" onclick="carouselGo('suc',3)"></button>
+          <button class="res-dot active" onclick="carouselGo('suc',0)" aria-label="Foto 1 de 4" aria-pressed="true"></button>
+          <button class="res-dot" onclick="carouselGo('suc',1)" aria-label="Foto 2 de 4" aria-pressed="false"></button>
+          <button class="res-dot" onclick="carouselGo('suc',2)" aria-label="Foto 3 de 4" aria-pressed="false"></button>
+          <button class="res-dot" onclick="carouselGo('suc',3)" aria-label="Foto 4 de 4" aria-pressed="false"></button>
         </div>
       </div>
     </div>
@@ -224,7 +225,10 @@ function carouselGo(id, i) {
   const c = carousels[id];
   c.idx = i;
   document.querySelector('#carousel-' + id + ' .res-carousel-track').style.transform = 'translateX(-' + (i * 100) + '%)';
-  document.querySelectorAll('#carousel-' + id + ' .res-dot').forEach((d, j) => d.classList.toggle('active', j === i));
+  document.querySelectorAll('#carousel-' + id + ' .res-dot').forEach((d, j) => {
+    d.classList.toggle('active', j === i);
+    d.setAttribute('aria-pressed', j === i ? 'true' : 'false');
+  });
 }
 
 function carouselNav(id, dir) {
@@ -242,6 +246,15 @@ function carouselInit(id, count) {
 document.addEventListener('DOMContentLoaded', () => {
   carouselInit('jac', 4);
   carouselInit('suc', 4);
+
+  // Navegação com setas dentro de cada carrossel
+  ['jac', 'suc'].forEach(id => {
+    const carousel = document.getElementById('carousel-' + id);
+    carousel.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft')  { e.preventDefault(); carouselNav(id, -1); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); carouselNav(id,  1); }
+    });
+  });
 
   // Menu hamburger
   const navToggle = document.getElementById('nav-toggle');
