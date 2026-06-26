@@ -1818,6 +1818,132 @@ p.lede.casa-padrao-lede {
 .lb-prev { left: 20px; }
 .lb-next { right: 20px; }
 
+/* ---------- atributos do parcelamento ---------- */
+.atributos-section { background: var(--bege-bg); }
+
+.atributos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.atrib-card {
+  background: var(--creme-50);
+  border: 1px solid var(--borda);
+  border-radius: var(--radius-lg);
+  padding: 36px 28px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.atrib-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+  border-color: var(--dourado-500);
+}
+.atrib-card--destaque {
+  background: var(--verde-900);
+  border-color: var(--verde-700);
+  color: var(--creme-100);
+}
+
+.atrib-icon-wrap {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.atrib-icon-wrap i { font-size: 26px; }
+
+.atrib-icon-seg   { background: rgba(201,162,75,0.14); color: var(--dourado-600); }
+.atrib-icon-infra { background: rgba(201,162,75,0.18); color: var(--dourado-400, #D4B46A); }
+.atrib-icon-pub   { background: rgba(59,109,17,0.12);  color: var(--verde-500); }
+
+.atrib-card h3 {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--verde-700);
+  line-height: 1.25;
+}
+.atrib-card p {
+  font-size: 14px;
+  color: var(--texto-medio);
+  line-height: 1.7;
+  flex: 1;
+}
+
+.atrib-lista {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 4px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(0,0,0,0.07);
+}
+.atrib-card--destaque .atrib-lista { border-top-color: rgba(255,255,255,0.1); }
+
+.atrib-lista li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--texto-medio);
+}
+.atrib-lista li i {
+  color: var(--verde-500);
+  font-size: 14px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+/* checkmark SVG inline via pseudo-element */
+.atrib-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  margin-top: 1px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%233B6D11' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='2.5,8.5 6,12 13.5,4.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.atrib-card--destaque .atrib-check {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23D4B46A' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='2.5,8.5 6,12 13.5,4.5'/%3E%3C/svg%3E");
+}
+.atrib-card--destaque h3 { color: var(--creme-100); }
+.atrib-card--destaque p  { color: rgba(244, 239, 227, 0.80); }
+.atrib-card--destaque .atrib-lista li { color: rgba(244, 239, 227, 0.72); }
+.atrib-card--destaque .atrib-lista li i { color: var(--dourado-400, #D4B46A); }
+
+/* Selos de credencial */
+.atrib-selo-row {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+  padding: 28px 32px;
+  background: var(--verde-900);
+  border-radius: var(--radius-lg);
+}
+.atrib-selo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13.5px;
+  color: var(--verde-200);
+}
+.atrib-selo i { font-size: 20px; color: var(--dourado-500); flex-shrink: 0; }
+.atrib-selo strong { color: var(--creme-100); }
+
 /* ---------- breakpoint intermediário (desktop largo → estreito) ----------
    Cobre: 200% de zoom em telas > 2200px, tablets landscape, monitores 1280px
    -------------------------------------------------------------------------  */
@@ -1828,6 +1954,7 @@ p.lede.casa-padrao-lede {
   .depo-grid    { grid-template-columns: 1fr 1fr; }
   .financ-num   { font-size: 42px; }
   .stat-item    { padding: 0 16px; }
+  .atributos-grid { gap: 16px; }
 }
 
 /* ---------- responsive principal ----------------------------------------
@@ -1871,6 +1998,8 @@ p.lede.casa-padrao-lede {
   nav.main-nav .btn { margin-top: 16px; padding: 14px 32px; font-size: 15px; }
 
   .grid-2, .grid-3, .client-cards, .footer-grid, .doc-grid, .res-layout, .res-meta, .steps-journey, .depo-grid { grid-template-columns: 1fr; }
+  .atributos-grid { grid-template-columns: 1fr; }
+  .atrib-selo-row { gap: 20px; padding: 24px 20px; }
   .steps-journey::before { display: none; }
   .sj-step { flex-direction: row; align-items: flex-start; gap: 14px; }
   .sj-badge { margin-bottom: 0; flex-shrink: 0; }
