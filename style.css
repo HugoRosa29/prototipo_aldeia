@@ -495,8 +495,13 @@ p.lede { font-size: 15px; color: var(--texto-medio); max-width: 620px; }
   border-radius: var(--radius-lg);
   overflow: hidden;
   background: var(--creme-50);
+  position: relative;
+  cursor: zoom-in;
 }
 .tl-foto img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.tl-foto:hover .galeria-overlay { opacity: 1; background: rgba(5,15,5,0.3); }
+.tl-foto:hover .galeria-zoom-icon { opacity: 1; transform: scale(1); }
+.tl-foto.vazia { cursor: default; }
 .tl-foto.vazia {
   display: flex;
   flex-direction: column;

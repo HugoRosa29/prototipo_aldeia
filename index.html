@@ -567,7 +567,7 @@ document.addEventListener('DOMContentLoaded', () => {
 window.addEventListener('hashchange', handleHash);
 
 // ── Lightbox ──────────────────────────────────────────────────────────────
-const lbSrcs = [
+const GALERIA_SRCS = [
   'img/jacarandas/DJI_20260512092800_0001_V_ponto+1.webp',
   'img/jacarandas/DJI_20260512092911_0003_V_ponto+2.webp',
   'img/jacarandas/DJI_20260512093111_0005_V.webp',
@@ -583,7 +583,7 @@ const lbSrcs = [
   'img/sucupiras/DJI_20260622154342_0004_V_QD+4+-+SUCUPIRA-02.webp',
   'img/sucupiras/DJI_20260622154349_0005_V.webp'
 ];
-const lbAlts = [
+const GALERIA_ALTS = [
   'Vista aérea — Jacarandás ponto 1',
   'Vista aérea — Jacarandás ponto 2',
   'Vista aérea — Jacarandás',
@@ -599,10 +599,37 @@ const lbAlts = [
   'Vista aérea — Sucupiras ponto 3',
   'Vista aérea — Sucupiras ponto 4'
 ];
+
+// Andamento das obras — imagens da linha do tempo (mesma ordem dos tl-slide)
+const TL_JAC_SRCS = [
+  'img/jacarandas/DJI_20260512092800_0001_V_ponto+1.webp',
+  'img/jacarandas/DJI_20260512092911_0003_V_ponto+2.webp',
+  'img/jacarandas/DJI_20260512093111_0005_V.webp'
+];
+const TL_JAC_ALTS = [
+  'Andamento das obras — Abril 2026',
+  'Andamento das obras — Maio 2026',
+  'Andamento das obras — Junho 2026'
+];
+const TL_SUC_SRCS = [
+  'img/sucupiras/DJI_20260622154240_0001_V_QD+4+-+SUCUPIRA-01.webp',
+  'img/sucupiras/DJI_20260622154250_0003_V.webp',
+  'img/sucupiras/DJI_20260622154342_0004_V_QD+4+-+SUCUPIRA-02.webp'
+];
+const TL_SUC_ALTS = [
+  'Andamento das obras — Abril 2026',
+  'Andamento das obras — Maio 2026',
+  'Andamento das obras — Junho 2026'
+];
+
+let lbSrcs = GALERIA_SRCS;
+let lbAlts = GALERIA_ALTS;
 let lbIdx = 0;
 let lbTrigger = null;
 
-function lbOpen(i) {
+function lbOpen(i, srcs, alts) {
+  lbSrcs = srcs || GALERIA_SRCS;
+  lbAlts = alts || GALERIA_ALTS;
   lbTrigger = document.activeElement;
   lbIdx = i;
   const img = document.getElementById('lb-img');
@@ -720,6 +747,20 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         gcNav(1);
         requestAnimationFrame(() => document.querySelector('#galeria-car .gc-slide.active')?.focus());
+      }
+    });
+  });
+
+  // Fotos da linha do tempo (andamento das obras): acesso por teclado
+  document.querySelectorAll('.tl-foto[onclick]').forEach(foto => {
+    foto.setAttribute('role', 'button');
+    foto.setAttribute('tabindex', '0');
+    const img = foto.querySelector('img');
+    if (img) foto.setAttribute('aria-label', 'Ampliar: ' + img.alt);
+    foto.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        foto.click();
       }
     });
   });
@@ -969,8 +1010,9 @@ document.addEventListener('DOMContentLoaded', () => {
             <!-- COLE AQUI ↓ novos slides (mais antigo primeiro) -->
 
             <div class="tl-slide active">
-              <div class="tl-foto">
+              <div class="tl-foto" onclick="lbOpen(0, TL_JAC_SRCS, TL_JAC_ALTS)">
                 <img src="img/jacarandas/DJI_20260512092800_0001_V_ponto+1.webp" alt="Andamento das obras — Abril 2026" loading="lazy">
+                <div class="galeria-overlay"><img src="img/icones/ampliacao.png" alt="" class="galeria-zoom-icon"></div>
               </div>
               <div class="tl-caption">
                 <span class="tl-mes">Abril 2026</span>
@@ -978,8 +1020,9 @@ document.addEventListener('DOMContentLoaded', () => {
               </div>
             </div>
             <div class="tl-slide">
-              <div class="tl-foto">
+              <div class="tl-foto" onclick="lbOpen(1, TL_JAC_SRCS, TL_JAC_ALTS)">
                 <img src="img/jacarandas/DJI_20260512092911_0003_V_ponto+2.webp" alt="Andamento das obras — Maio 2026" loading="lazy">
+                <div class="galeria-overlay"><img src="img/icones/ampliacao.png" alt="" class="galeria-zoom-icon"></div>
               </div>
               <div class="tl-caption">
                 <span class="tl-mes">Maio 2026</span>
@@ -987,8 +1030,9 @@ document.addEventListener('DOMContentLoaded', () => {
               </div>
             </div>
             <div class="tl-slide">
-              <div class="tl-foto">
+              <div class="tl-foto" onclick="lbOpen(2, TL_JAC_SRCS, TL_JAC_ALTS)">
                 <img src="img/jacarandas/DJI_20260512093111_0005_V.webp" alt="Andamento das obras — Junho 2026" loading="lazy">
+                <div class="galeria-overlay"><img src="img/icones/ampliacao.png" alt="" class="galeria-zoom-icon"></div>
               </div>
               <div class="tl-caption">
                 <span class="tl-mes">Junho 2026</span>
@@ -1061,8 +1105,9 @@ document.addEventListener('DOMContentLoaded', () => {
             <!-- COLE AQUI ↓ novos slides (mais antigo primeiro) -->
 
             <div class="tl-slide active">
-              <div class="tl-foto">
+              <div class="tl-foto" onclick="lbOpen(0, TL_SUC_SRCS, TL_SUC_ALTS)">
                 <img src="img/sucupiras/DJI_20260622154240_0001_V_QD+4+-+SUCUPIRA-01.webp" alt="Andamento das obras — Abril 2026" loading="lazy">
+                <div class="galeria-overlay"><img src="img/icones/ampliacao.png" alt="" class="galeria-zoom-icon"></div>
               </div>
               <div class="tl-caption">
                 <span class="tl-mes">Abril 2026</span>
@@ -1070,8 +1115,9 @@ document.addEventListener('DOMContentLoaded', () => {
               </div>
             </div>
             <div class="tl-slide">
-              <div class="tl-foto">
+              <div class="tl-foto" onclick="lbOpen(1, TL_SUC_SRCS, TL_SUC_ALTS)">
                 <img src="img/sucupiras/DJI_20260622154250_0003_V.webp" alt="Andamento das obras — Maio 2026" loading="lazy">
+                <div class="galeria-overlay"><img src="img/icones/ampliacao.png" alt="" class="galeria-zoom-icon"></div>
               </div>
               <div class="tl-caption">
                 <span class="tl-mes">Maio 2026</span>
@@ -1079,8 +1125,9 @@ document.addEventListener('DOMContentLoaded', () => {
               </div>
             </div>
             <div class="tl-slide">
-              <div class="tl-foto">
+              <div class="tl-foto" onclick="lbOpen(2, TL_SUC_SRCS, TL_SUC_ALTS)">
                 <img src="img/sucupiras/DJI_20260622154342_0004_V_QD+4+-+SUCUPIRA-02.webp" alt="Andamento das obras — Junho 2026" loading="lazy">
+                <div class="galeria-overlay"><img src="img/icones/ampliacao.png" alt="" class="galeria-zoom-icon"></div>
               </div>
               <div class="tl-caption">
                 <span class="tl-mes">Junho 2026</span>
