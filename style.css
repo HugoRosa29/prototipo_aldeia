@@ -1255,7 +1255,7 @@ p.lbl { font-size: 12px; color: var(--texto-medio); margin-top: 4px; text-transf
   transform: translate(-50%, -50%) scale(1.06);
 }
 .mp-label--disponivel {
-  background: #006C31;
+  background: var(--verde-600);
   color: #ffffff;
 }
 
