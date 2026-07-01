@@ -260,7 +260,7 @@ p.lede { font-size: 15px; color: var(--texto-medio); max-width: 620px; }
   letter-spacing: 0.06em;
   text-transform: uppercase;
   white-space: nowrap;
-  background: rgba(201, 162, 75, 0.78);
+  background: rgba(201, 162, 75, 0.93);
 }
 
 /* ---------- stats strip (inside hero, pill style) ---------- */
@@ -939,10 +939,12 @@ p.lede { font-size: 15px; color: var(--texto-medio); max-width: 620px; }
 
 /* ---------- formulario ---------- */
 .form-card {
-  background: var(--creme-50);
+  background: #fff;
   border: 1px solid var(--borda);
   border-radius: var(--radius-lg);
   padding: 28px;
+  box-shadow: 0 4px 24px rgba(53,81,69,0.07);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
 .field label { font-size: 12px; color: var(--texto-medio); display: block; margin-bottom: 6px; }
@@ -959,9 +961,48 @@ p.lede { font-size: 15px; color: var(--texto-medio); max-width: 620px; }
 .field textarea { resize: vertical; min-height: 90px; }
 .field { margin-bottom: 14px; }
 
+/* ---------- seção de contato ---------- */
+.contato-grid { gap: 32px; align-items: stretch; }
+.contact-card {
+  background: #fff;
+  border: 1px solid var(--borda);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: 0 4px 24px rgba(53,81,69,0.07);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.contact-card-title {
+  font-family: var(--serif);
+  font-size: 17px;
+  color: var(--verde-700);
+  margin-bottom: 8px;
+}
+.contact-card:hover, .form-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 32px rgba(53,81,69,0.12);
+}
+.form-card-chat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
 .contact-list { list-style: none; }
-.contact-list li { display: flex; gap: 14px; padding: 16px 0; border-bottom: 1px solid var(--borda); }
-.contact-list li i { font-size: 18px; color: var(--dourado-600); margin-top: 2px; }
+.contact-list li { display: flex; gap: 14px; align-items: center; padding: 14px 0; }
+.contact-list li + li { border-top: 1px solid var(--borda); }
+.contact-icon {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--verde-100);
+  border: 1px solid var(--dourado-300);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contact-icon i { font-size: 20px; color: var(--dourado-600); }
 .contact-list li b { display: block; font-size: 13.5px; color: var(--verde-700); margin-bottom: 2px; }
 .contact-list li span { font-size: 12px; color: var(--texto-medio); }
 
@@ -1217,6 +1258,7 @@ p.lbl { font-size: 12px; color: var(--texto-medio); margin-top: 4px; text-transf
 .depo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .depo-card {
   background: var(--verde-700);
+  border: 1px solid var(--dourado-500);
   border-radius: var(--radius-md);
   padding: 30px 26px;
   display: flex;
@@ -2125,14 +2167,32 @@ p.lede.casa-padrao-lede {
 /* ── WhatsApp flutuante ────────────────────────────────────── */
 .whatsapp-float {
   position: fixed; bottom: 28px; right: 24px; z-index: 990;
-  display: block; text-decoration: none;
-  box-shadow: 0 4px 22px rgba(37,211,102,0.45);
+  display: flex; align-items: center; justify-content: center;
+  width: 60px; height: 60px;
+  background: var(--verde-700);
+  border: 2px solid var(--dourado-500);
   border-radius: 50%;
-  transition: transform 0.2s, box-shadow 0.2s;
-  line-height: 0;
+  text-decoration: none;
+  box-shadow: 0 6px 24px rgba(53,81,69,0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-.whatsapp-float img { width: 56px; height: 56px; object-fit: contain; display: block; border: none; }
-.whatsapp-float:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(37,211,102,0.55); }
+.whatsapp-float::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 rgba(201,162,75,0.55);
+  animation: chatPulse 2.4s ease-out infinite;
+  pointer-events: none;
+}
+.whatsapp-float img { width: 30px; height: 30px; object-fit: contain; display: block; border: none; filter: brightness(0) invert(1); }
+.whatsapp-float:hover { transform: translateY(-4px) scale(1.05); box-shadow: 0 10px 30px rgba(53,81,69,0.45); }
+
+@keyframes chatPulse {
+  0%   { box-shadow: 0 0 0 0 rgba(201,162,75,0.55); }
+  70%  { box-shadow: 0 0 0 14px rgba(201,162,75,0); }
+  100% { box-shadow: 0 0 0 0 rgba(201,162,75,0); }
+}
 
 /* ── Investimento / valorização ────────────────────────────── */
 .invest-grid {
